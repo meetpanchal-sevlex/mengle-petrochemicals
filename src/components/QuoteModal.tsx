@@ -85,7 +85,7 @@ export default function QuoteModal({ isOpen, onClose, preselectedProduct }: Quot
                 exit={{ opacity: 0 }}
               >
                 <motion.div
-                  className="bg-white w-full max-w-lg rounded-3xl shadow-2xl border border-neutral-200/80 overflow-hidden pointer-events-auto"
+                  className="bg-white w-full max-w-lg rounded-3xl shadow-2xl border border-neutral-200/80 overflow-y-auto pointer-events-auto max-h-[90vh]"
                   initial={{ y: 24, scale: 0.96, opacity: 0 }}
                   animate={{ y: 0, scale: 1, opacity: 1 }}
                   exit={{ y: 16, scale: 0.97, opacity: 0 }}

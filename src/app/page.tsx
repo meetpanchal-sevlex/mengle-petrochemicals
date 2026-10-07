@@ -95,7 +95,7 @@ export default function HomePage() {
 
                 <motion.div variants={fadeUp} className="space-y-3">
                   <h1
-                    className="text-4xl sm:text-5xl lg:text-[3.75rem] font-extrabold leading-[1.08] tracking-[-0.03em]"
+                    className="text-[2.25rem] sm:text-5xl lg:text-[3.75rem] font-extrabold leading-[1.08] tracking-[-0.03em]"
                     style={{ fontFamily: 'var(--font-sora)' }}
                   >
                     POWERING INDUSTRY. <br />
@@ -135,7 +135,7 @@ export default function HomePage() {
                 </div>
 
                 {/* Primary Action Buttons */}
-                <div className="pt-4 flex flex-wrap items-center gap-4">
+                <div className="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
                   <button
                     onClick={() => handleOpenQuote()}
                     className="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-6 py-3.5 rounded-xl text-sm flex items-center gap-2 shadow-lg hover:shadow-amber-500/20 transition-all hover:scale-102 cursor-pointer"
@@ -205,7 +205,7 @@ export default function HomePage() {
 
         {/* CREDENTIALS & PILLARS STRIP */}
         <section id="credentials" className="bg-amber-500 text-slate-950 py-6 px-4 sm:px-8 shadow-md">
-          <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+          <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
             <div className="flex flex-col items-center justify-center p-2">
               <Award className="w-6 h-6 mb-1 text-slate-950" />
               <div className="text-sm font-extrabold tracking-tight uppercase">GOVT. AUTHORIZED</div>

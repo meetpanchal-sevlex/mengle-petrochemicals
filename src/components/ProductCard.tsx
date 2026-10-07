@@ -164,7 +164,7 @@ export default function ProductCard({ product, onOpenQuote }: ProductCardProps) 
       )}
 
       {/* Action Footer */}
-      <div className="p-6 pt-3 bg-white border-t border-slate-100 flex items-center gap-3">
+      <div className="p-6 pt-3 bg-white border-t border-slate-100 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
         <a
           href={getWhatsAppLink(product.name, product.code)}
           target="_blank"
