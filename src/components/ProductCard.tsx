@@ -40,17 +40,38 @@ export default function ProductCard({ product, onOpenQuote }: ProductCardProps) 
 
   return (
     <div className="bg-white rounded-2xl border border-slate-200 hover:border-amber-400/80 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden group">
-      {/* Product Image */}
-      {product.image && (
-        <div className="w-full h-48 bg-slate-100 relative overflow-hidden border-b border-slate-100">
+      {/* Product Image or Premium Fallback */}
+      <div className="w-full h-48 relative overflow-hidden border-b border-slate-100 bg-slate-900">
+        {product.image ? (
           <Image
             src={product.image}
             alt={product.name}
             fill
             className="object-cover group-hover:scale-105 transition-transform duration-500"
           />
-        </div>
-      )}
+        ) : (
+          <div className="absolute inset-0 w-full h-full opacity-20">
+            <svg className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <pattern id="grid-pattern" width="32" height="32" patternUnits="userSpaceOnUse">
+                  <path d="M0 32V.5H32" fill="none" stroke="currentColor" strokeOpacity="0.2"></path>
+                </pattern>
+                <pattern id="dot-pattern" width="16" height="16" patternUnits="userSpaceOnUse">
+                  <circle cx="2" cy="2" r="1" fill="currentColor" fillOpacity="0.4"></circle>
+                </pattern>
+              </defs>
+              <rect width="100%" height="100%" fill="url(#grid-pattern)" className="text-amber-500"></rect>
+              <rect width="100%" height="100%" fill="url(#dot-pattern)" className="text-white"></rect>
+            </svg>
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950 to-transparent opacity-80" />
+            <div className="absolute inset-0 flex items-center justify-center">
+               <span className="text-amber-400/30 font-black text-6xl tracking-tighter" style={{ fontFamily: 'var(--font-sora)' }}>
+                  {product.code.split('-')[1]}
+               </span>
+            </div>
+          </div>
+        )}
+      </div>
       
       {/* Top Header */}
       <div className="p-6 pb-4">
