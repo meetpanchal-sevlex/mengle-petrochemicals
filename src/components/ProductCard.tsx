@@ -9,6 +9,8 @@ interface ProductCardProps {
   onOpenQuote: (productName: string) => void;
 }
 
+import Image from 'next/image';
+
 export default function ProductCard({ product, onOpenQuote }: ProductCardProps) {
   const [showSpecs, setShowSpecs] = useState(false);
 
@@ -37,7 +39,19 @@ export default function ProductCard({ product, onOpenQuote }: ProductCardProps) 
   };
 
   return (
-    <div className="bg-white rounded-2xl border border-slate-200 hover:border-amber-400/80 shadow-xs hover:shadow-lg transition-all duration-200 flex flex-col justify-between overflow-hidden group">
+    <div className="bg-white rounded-2xl border border-slate-200 hover:border-amber-400/80 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden group">
+      {/* Product Image */}
+      {product.image && (
+        <div className="w-full h-48 bg-slate-100 relative overflow-hidden border-b border-slate-100">
+          <Image
+            src={product.image}
+            alt={product.name}
+            fill
+            className="object-cover group-hover:scale-105 transition-transform duration-500"
+          />
+        </div>
+      )}
+      
       {/* Top Header */}
       <div className="p-6 pb-4">
         <div className="flex items-center justify-between gap-2 mb-3">

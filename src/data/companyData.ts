@@ -15,6 +15,7 @@ export interface Product {
   category: 'Black Oils' | 'White Oils' | 'Base Oils' | 'Solvents' | 'Aromatic Petrochemicals';
   shortDesc: string;
   description: string;
+  image?: string;
   applications: string[];
   specs?: SpecRow[];
   extraSpecsNote?: string;
@@ -69,6 +70,7 @@ export const PRODUCTS: Product[] = [
     category: "Black Oils",
     shortDesc: "Class C category fuel having flash point above 66°C under BIS 1460:2000 specification.",
     description: "Light Diesel Oil falls under Class C category fuel having flash point above 66°C. It is a blend of distillate components and a small amount of residual components. It is marketed under BIS 1460:2000 specification for Diesel fuels.",
+    image: "/images/products/ldo.jpeg",
     applications: [
       "Used in lower RPM engines",
       "Lift irrigation pump sets",
@@ -97,6 +99,7 @@ export const PRODUCTS: Product[] = [
     category: "Black Oils",
     shortDesc: "Residual fuel meeting Bureau of Indian Standards IS: 1593-1982 for fuel oils, grade MV2.",
     description: "Furnace Oil is a fraction obtained from petroleum distillation. It is a dark, viscous residual liquid liquid at room temperature with carbon atoms ranging from 20 to 55. Meets Bureau of Indian Standards Specification IS: 1593-1982 for fuel oils, grade MV2.",
+    image: "/images/products/furnace-oil.jpeg",
     applications: [
       "Heavy industrial furnaces and boilers",
       "Power generation plants",
@@ -147,6 +150,7 @@ export const PRODUCTS: Product[] = [
     category: "Black Oils",
     shortDesc: "Eco-friendly low-sulphur residual fuel with high pour point and minimal emissions.",
     description: "Low Sulphur Heavy Stock (LSHS) is a residual fuel manufactured from select indigenous crude oils. It is characterized by low sulphur content (typically <0.5%) to meet environmental emission standards in sensitive industrial areas.",
+    image: "/images/products/lshs.jpeg",
     applications: [
       "Pollution-sensitive industrial boiler zones",
       "Fertilizer and chemical processing plants",
