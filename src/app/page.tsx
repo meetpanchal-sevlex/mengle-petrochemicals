@@ -78,7 +78,7 @@ export default function HomePage() {
       {/* Main Content */}
       <main className="flex-1">
         {/* HERO SECTION */}
-        <section className="relative bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-white overflow-hidden py-20 lg:py-28 border-b border-slate-800">
+        <section className="relative bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-white overflow-hidden py-12 lg:py-28 border-b border-slate-800">
           {/* Subtle Background Glows */}
           <div className="absolute top-0 left-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
           <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
@@ -213,32 +213,32 @@ export default function HomePage() {
 
         {/* CREDENTIALS & PILLARS STRIP */}
         <section id="credentials" className="bg-amber-500 text-slate-950 py-6 px-4 sm:px-8 shadow-md">
-          <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+          <div className="max-w-7xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 text-center">
             <div className="flex flex-col items-center justify-center p-2">
-              <Award className="w-6 h-6 mb-1 text-slate-950" />
-              <div className="text-sm font-extrabold tracking-tight uppercase">GOVT. AUTHORIZED</div>
-              <div className="text-xs font-semibold text-slate-900">Licensed Petroleum Supplier</div>
+              <Award className="w-5 h-5 lg:w-6 lg:h-6 mb-1 text-slate-950" />
+              <div className="text-[10px] lg:text-sm font-extrabold tracking-tight uppercase leading-tight">GOVT. AUTHORIZED</div>
+              <div className="text-[9px] lg:text-xs font-semibold text-slate-900 leading-tight mt-0.5">Licensed Petroleum Supplier</div>
             </div>
             <div className="flex flex-col items-center justify-center p-2">
-              <CheckCircle2 className="w-6 h-6 mb-1 text-slate-950" />
-              <div className="text-sm font-extrabold tracking-tight uppercase">QUALITY ASSURED</div>
-              <div className="text-xs font-semibold text-slate-900">Lab Tested Specifications</div>
+              <CheckCircle2 className="w-5 h-5 lg:w-6 lg:h-6 mb-1 text-slate-950" />
+              <div className="text-[10px] lg:text-sm font-extrabold tracking-tight uppercase leading-tight">QUALITY ASSURED</div>
+              <div className="text-[9px] lg:text-xs font-semibold text-slate-900 leading-tight mt-0.5">Lab Tested Specifications</div>
             </div>
             <div className="flex flex-col items-center justify-center p-2">
-              <ShieldCheck className="w-6 h-6 mb-1 text-slate-950" />
-              <div className="text-sm font-extrabold tracking-tight uppercase">INDUSTRY TRUSTED</div>
-              <div className="text-xs font-semibold text-slate-900">Complete Statutory Registrations</div>
+              <ShieldCheck className="w-5 h-5 lg:w-6 lg:h-6 mb-1 text-slate-950" />
+              <div className="text-[10px] lg:text-sm font-extrabold tracking-tight uppercase leading-tight">INDUSTRY TRUSTED</div>
+              <div className="text-[9px] lg:text-xs font-semibold text-slate-900 leading-tight mt-0.5">Complete Statutory Registrations</div>
             </div>
             <div className="flex flex-col items-center justify-center p-2">
-              <Flame className="w-6 h-6 mb-1 text-slate-950" />
-              <div className="text-sm font-extrabold tracking-tight uppercase">PERFORMANCE DRIVEN</div>
-              <div className="text-xs font-semibold text-slate-900">Consistent Calorific Value</div>
+              <Flame className="w-5 h-5 lg:w-6 lg:h-6 mb-1 text-slate-950" />
+              <div className="text-[10px] lg:text-sm font-extrabold tracking-tight uppercase leading-tight">PERFORMANCE DRIVEN</div>
+              <div className="text-[9px] lg:text-xs font-semibold text-slate-900 leading-tight mt-0.5">Consistent Calorific Value</div>
             </div>
           </div>
         </section>
 
         {/* ABOUT US SECTION */}
-        <section id="about" className="py-20 bg-white border-b border-slate-200">
+        <section id="about" className="py-10 lg:py-20 bg-white border-b border-slate-200">
           <div className="max-w-7xl mx-auto px-4 sm:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
               {/* Left Column: Overview */}
@@ -247,7 +247,7 @@ export default function HomePage() {
                   <div className="text-xs font-bold uppercase tracking-wider text-amber-600 mb-1">
                     Introduction
                   </div>
-                  <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight"
+                  <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight"
                     style={{ fontFamily: 'var(--font-sora)' }}>
                     Driving Business Through Reliable Petroleum Solutions
                   </h2>
@@ -395,7 +395,7 @@ export default function HomePage() {
         </section>
 
         {/* DUAL DEPOTS & STRATEGIC LOCATIONS */}
-        <section id="offices" className="py-20 bg-white border-b border-slate-200">
+        <section id="offices" className="py-10 lg:py-20 bg-white border-b border-slate-200">
           <div className="max-w-7xl mx-auto px-4 sm:px-8">
             <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
               <div className="text-xs font-bold uppercase tracking-wider text-amber-600">
@@ -508,7 +508,7 @@ export default function HomePage() {
         </section>
 
         {/* CONTACT & RFQ SECTION */}
-        <section id="contact" className="py-20 bg-slate-900 text-white relative">
+        <section id="contact" className="py-10 lg:py-20 bg-slate-900 text-white relative">
           <div className="max-w-7xl mx-auto px-4 sm:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
               <div className="lg:col-span-6 space-y-6">
@@ -558,7 +558,7 @@ export default function HomePage() {
                     <h3 className="text-xl font-bold tracking-tight">
                       Instant Quote Request
                     </h3>
-                    <p className="text-xs text-slate-500 mt-1">
+                    <p className="text-[11px] lg:text-xs text-slate-500 mt-1 leading-relaxed">
                       Fill out your requirements for an immediate response on WhatsApp or email.
                     </p>
                   </div>
