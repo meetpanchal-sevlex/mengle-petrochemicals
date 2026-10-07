@@ -65,6 +65,7 @@ export const PRODUCTS: Product[] = [
   // BLACK OILS
   {
     id: "light-diesel-oil",
+    image: "/images/products/ldo_real.jpeg",
     code: "BO-LDO-001",
     name: "Light Diesel Oil (LDO) - BPCL",
     category: "Black Oils",
@@ -169,7 +170,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: "pyrolysis-oil",
-    image: "/images/products/pyrolysis-oil_real.jpeg",
+    image: "/images/products/pyrolysis.jpeg",
     code: "BO-PO-005",
     name: "Pyrolysis Oil",
     category: "Black Oils",
@@ -192,7 +193,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: "recycled-base-oil",
-    image: "/images/products/recycled-base-oil_real.jpeg",
+    image: "/images/products/recycled.jpeg",
     code: "BO-RO-006",
     name: "Recycled Base Oil",
     category: "Black Oils",
@@ -219,7 +220,7 @@ export const PRODUCTS: Product[] = [
   // WHITE OILS
   {
     id: "light-liquid-paraffin",
-    image: "/images/products/light-liquid-paraffin_real.jpeg",
+    image: "/images/products/llp.jpeg",
     code: "WO-LLP-001",
     name: "Light Liquid Paraffin Oil (LLP) - IP Grade",
     category: "White Oils",
@@ -243,7 +244,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: "quenching-oil",
-    image: "/images/products/quenching-oil_real.jpeg",
+    image: "/images/products/quenching.jpeg",
     code: "SO-QO-002",
     name: "Quenching Oil",
     category: "White Oils",
@@ -266,7 +267,7 @@ export const PRODUCTS: Product[] = [
   // BASE OILS
   {
     id: "base-oil-range",
-    image: "/images/products/base-oil-range_real.jpeg",
+    image: "/images/products/base-oil.jpeg",
     code: "BA-OI-1512",
     name: "Base Oil (SN-150, SN-500, N-150, N-500, LUB-32, LUB-100)",
     category: "Base Oils",
@@ -290,7 +291,7 @@ export const PRODUCTS: Product[] = [
   // PETROLEUM & HYDROCARBON SOLVENTS
   {
     id: "mineral-turpentine-oil",
-    image: "/images/products/mineral-turpentine-oil_real.jpeg",
+    image: "/images/products/mto.jpeg",
     code: "SOL-MTO-001",
     name: "Mineral Turpentine Oil (MTO) / White Spirit",
     category: "Solvents",
@@ -316,7 +317,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: "naphtha",
-    image: "/images/products/naphtha_real.jpeg",
+    image: "/images/products/naphtha.jpeg",
     code: "SOL-NAP-002",
     name: "Naphtha",
     category: "Solvents",
@@ -338,7 +339,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: "c9-solvent",
-    image: "/images/products/c9-solvent_real.jpeg",
+    image: "/images/products/c9.jpeg",
     code: "SOL-C9-003",
     name: "C9 Solvent",
     category: "Solvents",
@@ -360,7 +361,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: "c9-plus-solvent",
-    image: "/images/products/c9-plus-solvent_real.jpeg",
+    image: "/images/products/c9-plus.jpeg",
     code: "SOL-C9P-004",
     name: "C9 Plus Solvent (White)",
     category: "Solvents",
@@ -383,7 +384,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: "c10-solvent",
-    image: "/images/products/c10-solvent_real.jpeg",
+    image: "/images/products/c10.jpeg",
     code: "SOL-C10-005",
     name: "C10 Solvent",
     category: "Solvents",
@@ -408,7 +409,7 @@ export const PRODUCTS: Product[] = [
   // AROMATIC PETROCHEMICALS
   {
     id: "benzene",
-    image: "/images/products/benzene_real.jpeg",
+    image: "/images/products/benzene-pure.jpeg",
     code: "AR-BEN-001",
     name: "Benzene (C6H6)",
     category: "Aromatic Petrochemicals",
@@ -429,7 +430,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: "toluene",
-    image: "/images/products/toluene_real.jpeg",
+    image: "/images/products/toluene.jpeg",
     code: "AR-TOL-002",
     name: "Toluene / Toluol (Methylbenzene)",
     category: "Aromatic Petrochemicals",
@@ -449,7 +450,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: "crude-benzol",
-    image: "/images/products/crude-benzol_real.jpeg",
+    image: "/images/products/benzene.jpeg",
     code: "AR-CBZ-003",
     name: "Crude Benzol",
     category: "Aromatic Petrochemicals",
