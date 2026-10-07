@@ -74,7 +74,7 @@ export default function ProductCard({ product, onOpenQuote }: ProductCardProps) 
       </div>
       
       {/* Top Header */}
-      <div className="p-6 pb-4">
+      <div className="p-5 lg:p-6 pb-4">
         <div className="flex items-center justify-between gap-2 mb-3">
           <span className={`text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md border ${getCategoryColor(product.category)}`}>
             {product.category}
@@ -164,7 +164,7 @@ export default function ProductCard({ product, onOpenQuote }: ProductCardProps) 
       )}
 
       {/* Action Footer */}
-      <div className="p-6 pt-3 bg-white border-t border-slate-100 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+      <div className="p-5 lg:p-6 pt-4 bg-white border-t border-slate-100 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
         <a
           href={getWhatsAppLink(product.name, product.code)}
           target="_blank"
