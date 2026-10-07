@@ -1,26 +1,88 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Brand Tokens */
+  --brand-amber: #F59E0B;
+  --brand-amber-light: #FCD34D;
+  --brand-slate: #0B1120;
+
+  /* Typography Scale */
+  --font-sans: var(--font-plus-jakarta);
+  --font-display: var(--font-sora);
+  --font-mono: var(--font-jetbrains-mono);
+
+  /* Background */
+  --background: #FAFAFA;
+  --foreground: #0B1120;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-plus-jakarta);
+  --font-display: var(--font-sora);
+  --font-mono: var(--font-jetbrains-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Global Resets */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-plus-jakarta), 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+  line-height: 1.6;
+}
+
+/* Premium Heading Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-sora), 'Sora', var(--font-plus-jakarta), sans-serif;
+  font-feature-settings: "kern" 1, "liga" 1;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+}
+
+/* Subtle Ambient Page Glow */
+.hero-glow {
+  background: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(245,158,11,0.12) 0%, transparent 65%);
+}
+
+/* Product table styling */
+.spec-table th {
+  font-family: var(--font-plus-jakarta);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 0.65rem;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Selection Color */
+::selection {
+  background: rgba(245, 158, 11, 0.25);
+  color: #0B1120;
 }
