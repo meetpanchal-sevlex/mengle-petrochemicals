@@ -25,15 +25,15 @@ export default function FloatingActions() {
         href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="group flex items-center gap-2.5 bg-emerald-600 hover:bg-emerald-500 text-white pl-4 pr-5 py-3 rounded-full shadow-xl hover:shadow-2xl transition-all duration-200 hover:scale-105"
+        className="group flex items-center gap-2.5 bg-emerald-600 hover:bg-emerald-500 text-white w-12 h-12 sm:w-auto sm:h-auto sm:pl-4 sm:pr-5 sm:py-3 justify-center rounded-full shadow-xl hover:shadow-2xl transition-all duration-200 hover:scale-105"
         aria-label="Chat on WhatsApp"
       >
-        <span className="relative flex h-3 w-3">
+        <span className="hidden sm:flex relative h-3 w-3">
           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
           <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-200"></span>
         </span>
         <MessageSquare className="w-5 h-5 fill-current" />
-        <span className="text-sm font-bold tracking-tight">Quick WhatsApp Quote</span>
+        <span className="hidden sm:inline text-sm font-bold tracking-tight">Quick WhatsApp Quote</span>
       </a>
     </div>
   );
