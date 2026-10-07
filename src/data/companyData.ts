@@ -125,6 +125,7 @@ export const PRODUCTS: Product[] = [
     category: "Black Oils",
     shortDesc: "High calorific value industrial liquid fuel with optimal viscosity and combustion efficiency.",
     description: "Fuel Oil is a residual fuel produced by blending residues from petroleum distillation with middle distillates. Designed for maximum thermal efficiency and high calorific output in industrial combustion units.",
+    image: "/images/products/fuel-oil.jpeg",
     applications: [
       "Steam generation in boilers",
       "Thermal power units",
@@ -365,6 +366,7 @@ export const PRODUCTS: Product[] = [
     category: "Solvents",
     shortDesc: "High aromatic content (99%) C9+ solvent engineered for specialty performance applications.",
     description: "High-purity C9+ solvent featuring 99% aromatic content. Engineered for applications where low color, uniform evaporation, and high resin compatibility are critical.",
+    image: "/images/products/mto.jpeg",
     applications: [
       "Specialty industrial coatings and synthetic resins",
       "Printing inks and tinting systems",
