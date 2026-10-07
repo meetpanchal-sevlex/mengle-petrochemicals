@@ -174,6 +174,7 @@ export const PRODUCTS: Product[] = [
     category: "Black Oils",
     shortDesc: "Synthetic bio/tire fuel substitute for industrial thermal heating and boiler operations.",
     description: "Pyrolysis oil (often referred to as bio-crude or tire-derived fuel) is obtained by heating dry biomass or polymer feedstocks in the absence of oxygen at ~500°C. It serves as a cost-effective, high-calorific alternative to furnace oil.",
+    image: "/images/products/furnace-oil.jpeg",
     applications: [
       "Industrial heating boilers",
       "Cement and lime kilns",
@@ -196,6 +197,7 @@ export const PRODUCTS: Product[] = [
     category: "Black Oils",
     shortDesc: "Re-refined high-viscosity-index base stock for circular economy and cost optimization.",
     description: "Used oil re-refined and de-mineralised into high quality base stock. Thoroughly processed to eliminate contaminants while retaining superior lubricating qualities and film strength.",
+    image: "/images/products/n150.jpeg",
     applications: [
       "Industrial burner fuel formulation",
       "Mould release agent for concrete and metal pressing",
@@ -222,6 +224,7 @@ export const PRODUCTS: Product[] = [
     category: "White Oils",
     shortDesc: "Highly purified saturated hydrocarbons, transparent, colourless, odourless, IP grade.",
     description: "Light Liquid Paraffin Oil IP is a highly purified mixture of liquid saturated hydrocarbons obtained from petroleum. Transparent, colourless, odourless, and tasteless when cold. Demonstrates outstanding thermal and chemical stability with high flash points.",
+    image: "/images/products/sn150.jpeg",
     applications: [
       "Textile Auxiliaries: Anti-static coning oil & knitting oil",
       "Cosmetics & Pharmaceuticals: Creams, lotions, bulk drug carrier",
@@ -245,6 +248,7 @@ export const PRODUCTS: Product[] = [
     category: "White Oils",
     shortDesc: "Formulated industrial heat-treatment fluid for controlled metal cooling and uniform hardness.",
     description: "M. Engle Quenching Oil is specially formulated for controlled cooling of heated metal components during the heat treatment process. Ensures uniform hardness, reduced distortion, low foaming, and long fluid service life.",
+    image: "/images/products/n150.jpeg",
     applications: [
       "Gears & gear components",
       "Bearings, shafts & axles",
@@ -267,6 +271,7 @@ export const PRODUCTS: Product[] = [
     category: "Base Oils",
     shortDesc: "Virgin and Hydrotreated Group I & II Base Oils for lubricant blending and industrial oils.",
     description: "High-grade solvent-refined and hydrotreated virgin mineral base stocks. Provides exceptional oxidation stability, high viscosity index, low volatility, and excellent additive receptivity for blending automotive and industrial oils.",
+    image: "/images/products/sn500.jpeg",
     applications: [
       "Automotive engine and gear oil blending",
       "Industrial hydraulic fluid manufacturing",
@@ -290,6 +295,7 @@ export const PRODUCTS: Product[] = [
     category: "Solvents",
     shortDesc: "Open-chain aliphatic hydrocarbon C7 to C12 solvent widely utilized in paints and varnishes.",
     description: "Mineral Turpentine Oil (MTO), also recognized as White Spirit & Petroleum Spirits, is a mixture of aliphatic and alicyclic C7-C12 hydrocarbons. Insoluble in water with consistent boiling characteristics.",
+    image: "/images/products/mto.jpeg",
     applications: [
       "Raw material for paints, enamels & varnishes",
       "Extraction, degreasing & industrial cleaning solvent",
@@ -315,6 +321,7 @@ export const PRODUCTS: Product[] = [
     category: "Solvents",
     shortDesc: "Volatile hydrocarbon solvent and petrochemical feedstock for olefins and polymers.",
     description: "Naphtha is a flammable liquid hydrocarbon mixture derived from natural gas condensates and petroleum distillates. Essential as an industrial solvent and crucial primary feedstock for petrochemical crackers.",
+    image: "/images/products/benzene.jpeg",
     applications: [
       "Raw material for polymer production (polyethylene, polypropylene)",
       "Steam cracking for gasoline and aromatics generation",
@@ -336,6 +343,7 @@ export const PRODUCTS: Product[] = [
     category: "Solvents",
     shortDesc: "Aromatic C9 hydrocarbon solvent with excellent solvency for paints, inks, and agrochemicals.",
     description: "High-solvency C9 aromatic cut designed for coatings, resins, agrochemicals, and industrial cleaners requiring controlled evaporation and superior active ingredient solvency.",
+    image: "/images/products/mto.jpeg",
     applications: [
       "Paints, industrial coatings & lacquers",
       "Printing inks, offset reducers & gravure formulations",
@@ -379,6 +387,7 @@ export const PRODUCTS: Product[] = [
     category: "Solvents",
     shortDesc: "High boiling point (181-205°C) aromatic solvent with zero ethyl-benzene for green agrochemicals.",
     description: "C10 solvent is a high boiling point (181-205°C) aromatic hydrocarbon solvent. It possesses a flash point and evaporation rate higher than Xylene, imparting superior flow and film formation in coatings, with no ethyl-benzene content.",
+    image: "/images/products/benzene.jpeg",
     applications: [
       "Environmentally friendly agrochemicals & pesticide formulations",
       "High-build automotive & industrial paints",
@@ -403,6 +412,7 @@ export const PRODUCTS: Product[] = [
     category: "Aromatic Petrochemicals",
     shortDesc: "High-purity primary aromatic building block for chemical synthesis and polymer manufacture.",
     description: "Pure benzene (C6H6) is the fundamental parent compound of aromatic hydrocarbons. Essential basic petrochemical feedstock utilized globally for polystyrene, alkylbenzenes, synthetic fibers, and detergents.",
+    image: "/images/products/benzene.jpeg",
     applications: [
       "Styrene and polystyrene production",
       "Cumene (for phenol & acetone) manufacturing",
@@ -423,6 +433,7 @@ export const PRODUCTS: Product[] = [
     category: "Aromatic Petrochemicals",
     shortDesc: "Aromatic methylbenzene solvent for paints, chemical synthesis, and octane enhancement.",
     description: "Toluene (C7H8) is an aromatic hydrocarbon widely used as an industrial solvent and chemical intermediate for diisocyanates (polyurethane foam), benzoic acid, and high-performance fuel blending.",
+    image: "/images/products/benzene.jpeg",
     applications: [
       "Feedstock for TDI (toluene diisocyanate) polyurethane foam",
       "Solvent in paints, printing inks, thinners & adhesives",
@@ -442,6 +453,7 @@ export const PRODUCTS: Product[] = [
     category: "Aromatic Petrochemicals",
     shortDesc: "Coal carbonisation recovered aromatic mixture consisting of benzene, toluene, and xylenes.",
     description: "Crude benzol is recovered during the high-temperature carbonisation of coking coal in coke ovens. Composed primarily of benzene homologues (benzene, toluene, xylene) for secondary distillation and industrial recovery.",
+    image: "/images/products/benzene.jpeg",
     applications: [
       "Aromatic chemical fractionation and recovery",
       "Industrial solvent blends",
