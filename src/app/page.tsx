@@ -409,106 +409,99 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-8">
               {/* Ahmedabad Branch */}
-              <div className="bg-slate-50 border border-slate-200 rounded-2xl p-8 hover:shadow-md transition-shadow relative overflow-hidden flex flex-col justify-between">
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded bg-blue-100 text-blue-800">
-                      Branch Office • Gujarat
+              <div className="bg-white border border-slate-200 rounded-2xl p-5 lg:p-6 hover:shadow-lg transition-all flex flex-col justify-between group">
+                <div>
+                  <div className="flex flex-wrap items-center gap-2 mb-3">
+                    <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded bg-blue-50 text-blue-700 border border-blue-100">
+                      Gujarat Branch
                     </span>
-                    <span className="text-xs font-semibold text-slate-400">Ahmedabad Hub</span>
+                    <span className="text-[10px] font-semibold text-slate-400">Ahmedabad Hub</span>
                   </div>
 
-                  <h3 className="text-xl font-bold text-slate-900">
+                  <h3 className="text-lg font-extrabold text-slate-900 mb-2">
                     Ahmedabad Office
                   </h3>
 
-                  <div className="flex items-start gap-3 text-sm text-slate-600">
-                    <MapPin className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
-                    <p className="leading-relaxed">
-                      A622, Moneyplant Highstreet, Jagatpur Road, Sarkhej-Gandhinagar Highway, Nr. BSNL Office, Ahmedabad – 382470 (GUJARAT - INDIA)
+                  <div className="flex items-start gap-2.5 text-xs text-slate-600 mb-3">
+                    <p className="leading-snug">
+                      A622, Moneyplant Highstreet, Jagatpur Road, Sarkhej-Gandhinagar Highway, Nr. BSNL Office, Ahmedabad – 382470 (INDIA)
                     </p>
                   </div>
 
-                  <div className="pt-2 space-y-2 text-xs text-slate-600">
-                    <div className="flex items-center gap-2">
-                      <Clock className="w-4 h-4 text-slate-400" />
-                      <span>Dispatch Operations: Mon - Sat (9:00 AM - 7:00 PM)</span>
-                    </div>
+                  <div className="flex items-center gap-2 text-[11px] text-slate-500 mb-5 pb-4 border-b border-slate-100">
+                    <span>Mon - Sat (9:00 AM - 7:00 PM)</span>
                   </div>
                 </div>
 
-                <div className="pt-6 border-t border-slate-200 mt-6 flex items-center gap-3">
+                <div className="flex items-center gap-2">
                   <a
                     href={`tel:${COMPANY_INFO.phoneRaw}`}
-                    className="flex-1 bg-slate-900 hover:bg-slate-800 text-white font-semibold py-2.5 px-4 rounded-xl text-xs text-center transition-colors"
+                    className="flex-1 bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 px-3 rounded-xl text-xs text-center transition-colors shadow-sm"
                   >
-                    Call Ahmedabad Office
+                    Call Office
                   </a>
                   <a
                     href="https://maps.google.com/?q=Moneyplant+Highstreet+Ahmedabad"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-white border border-slate-300 hover:bg-slate-100 text-slate-700 font-semibold py-2.5 px-4 rounded-xl text-xs transition-colors"
+                    className="bg-slate-50 hover:bg-slate-100 text-slate-700 font-bold py-3 px-4 rounded-xl text-xs transition-colors border border-slate-200"
                   >
-                    Get Directions
+                    Directions
                   </a>
                 </div>
               </div>
 
               {/* Indore Registered Office */}
-              <div className="bg-slate-50 border border-slate-200 rounded-2xl p-8 hover:shadow-md transition-shadow relative overflow-hidden flex flex-col justify-between">
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded bg-amber-100 text-amber-900">
-                      Registered Office • Headquarters
+              <div className="bg-white border border-slate-200 rounded-2xl p-5 lg:p-6 hover:shadow-lg transition-all flex flex-col justify-between group">
+                <div>
+                  <div className="flex flex-wrap items-center gap-2 mb-3">
+                    <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded bg-amber-50 text-amber-700 border border-amber-100">
+                      HQ / Reg. Office
                     </span>
-                    <span className="text-xs font-semibold text-slate-400">Madhya Pradesh Hub</span>
+                    <span className="text-[10px] font-semibold text-slate-400">MP Hub</span>
                   </div>
 
-                  <h3 className="text-xl font-bold text-slate-900">
-                    Indore Registered Office
+                  <h3 className="text-lg font-extrabold text-slate-900 mb-2">
+                    Indore Office
                   </h3>
 
-                  <div className="flex items-start gap-3 text-sm text-slate-600">
-                    <MapPin className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
-                    <p className="leading-relaxed">
+                  <div className="flex items-start gap-2.5 text-xs text-slate-600 mb-3">
+                    <p className="leading-snug">
                       B-102 Samarth Park Behind Dmart Mhow, Indore – 453441 (MADHYA PRADESH - INDIA)
                     </p>
                   </div>
 
-                  <div className="pt-2 space-y-2 text-xs text-slate-600">
-                    <div className="flex items-center gap-2">
-                      <Clock className="w-4 h-4 text-slate-400" />
-                      <span>Administration & Commercial: Mon - Sat</span>
-                    </div>
+                  <div className="flex items-center gap-2 text-[11px] text-slate-500 mb-5 pb-4 border-b border-slate-100">
+                    <span>Mon - Sat (9:00 AM - 7:00 PM)</span>
                   </div>
                 </div>
 
-                <div className="pt-6 border-t border-slate-200 mt-6 flex items-center gap-3">
+                <div className="flex items-center gap-2">
                   <a
                     href={`tel:${COMPANY_INFO.phoneRaw}`}
-                    className="flex-1 bg-slate-900 hover:bg-slate-800 text-white font-semibold py-2.5 px-4 rounded-xl text-xs text-center transition-colors"
+                    className="flex-1 bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 px-3 rounded-xl text-xs text-center transition-colors shadow-sm"
                   >
-                    Call Indore Office
+                    Call Office
                   </a>
                   <a
                     href="https://maps.google.com/?q=Samarth+Park+Mhow+Indore"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-white border border-slate-300 hover:bg-slate-100 text-slate-700 font-semibold py-2.5 px-4 rounded-xl text-xs transition-colors"
+                    className="bg-slate-50 hover:bg-slate-100 text-slate-700 font-bold py-3 px-4 rounded-xl text-xs transition-colors border border-slate-200"
                   >
-                    Get Directions
+                    Directions
                   </a>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
 
-        {/* CONTACT & RFQ SECTION */}
-        <section id="contact" className="py-10 lg:py-20 bg-slate-900 text-white relative">
+            </div>
+          </section>
+
+          <section id="contact" className="py-10 lg:py-20 bg-slate-900 text-white relative">
           <div className="max-w-7xl mx-auto px-4 sm:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
               <div className="lg:col-span-6 space-y-6">
