@@ -6,8 +6,9 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ProductCard from '@/components/ProductCard';
 import QuoteModal from '@/components/QuoteModal';
+import ProductModal from '@/components/ProductModal';
 import FloatingActions from '@/components/FloatingActions';
-import { COMPANY_INFO, PRODUCTS } from '@/data/companyData';
+import { COMPANY_INFO, PRODUCTS, Product } from '@/data/companyData';
 import { cn } from '@/lib/utils';
 import { 
   ShieldCheck, 
@@ -42,6 +43,8 @@ export default function HomePage() {
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [isQuoteOpen, setIsQuoteOpen] = useState(false);
   const [quoteProduct, setQuoteProduct] = useState<string>('');
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const [isProductModalOpen, setIsProductModalOpen] = useState(false);
 
   const categories = ['All', 'Black Oils', 'White Oils', 'Base Oils', 'Solvents', 'Aromatic Petrochemicals'];
 
@@ -56,6 +59,11 @@ export default function HomePage() {
       return matchesCategory && matchesSearch;
     });
   }, [selectedCategory, searchQuery]);
+
+  const handleOpenProduct = (prod: typeof PRODUCTS[0]) => {
+    setSelectedProduct(prod);
+    setIsProductModalOpen(true);
+  };
 
   const handleOpenQuote = (productName?: string) => {
     setQuoteProduct(productName || PRODUCTS[0].name);
@@ -358,12 +366,12 @@ export default function HomePage() {
 
             {/* Products Grid */}
             {filteredProducts.length > 0 ? (
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+              <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-3 sm:gap-4 lg:gap-6">
                 {filteredProducts.map((prod) => (
                   <ProductCard
                     key={prod.id}
                     product={prod}
-                    onOpenQuote={(name) => handleOpenQuote(name)}
+                    onClick={() => handleOpenProduct(prod)}
                   />
                 ))}
               </div>
@@ -590,7 +598,15 @@ export default function HomePage() {
       {/* Floating CTA buttons */}
       <FloatingActions />
 
-      {/* Quote RFQ Modal */}
+      {/* Product Detail Modal */}
+        <ProductModal 
+          isOpen={isProductModalOpen}
+          onClose={() => setIsProductModalOpen(false)}
+          product={selectedProduct}
+          onOpenQuote={handleOpenQuote}
+        />
+
+        {/* Quote RFQ Modal */}
       <QuoteModal
         isOpen={isQuoteOpen}
         onClose={() => setIsQuoteOpen(false)}
