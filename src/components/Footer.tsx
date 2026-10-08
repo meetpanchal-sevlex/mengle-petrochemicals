@@ -6,24 +6,6 @@ import { COMPANY_INFO } from '@/data/companyData';
 export default function Footer() {
   return (
     <footer className="bg-slate-950 text-slate-400 border-t border-slate-800">
-      {/* Top Credentials Banner */}
-      <div className="border-b border-slate-800/80 py-8 px-4 sm:px-8 bg-slate-900/50">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-6">
-          {COMPANY_INFO.credentials.map((cred, i) => (
-            <div key={i} className="flex items-start gap-3.5 p-3 rounded-lg bg-slate-900 border border-slate-800">
-              <div className="p-2 rounded-md bg-amber-500/10 text-amber-400 shrink-0">
-                <ShieldCheck className="w-5 h-5" />
-              </div>
-              <div>
-                <div className="text-xs text-slate-400 font-medium">{cred.title}</div>
-                <div className="text-sm font-bold text-white tracking-wide">{cred.value}</div>
-                <div className="text-[11px] text-slate-500">{cred.subtitle}</div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
       {/* Main Footer Links & Depots */}
       <div className="max-w-7xl mx-auto px-4 sm:px-8 py-16 grid grid-cols-1 lg:grid-cols-12 gap-12">
         {/* Brand Column */}
