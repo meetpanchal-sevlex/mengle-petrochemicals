@@ -39,6 +39,38 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
           : 'bg-white border-b border-neutral-200/50'
       )}
     >
+      {/* ── Top Utility Bar ── */}
+      <div className="bg-[#0B1120] text-slate-400 text-[11px] py-2 px-4 sm:px-8 border-b border-slate-800/60">
+        <div className="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
+          <div className="flex items-center gap-5">
+            
+            <span className="hidden md:flex items-center gap-1.5 text-slate-500">
+              <MapPin className="w-3 h-3 text-amber-500/70" />
+              Ahmedabad & Indore Depots
+            </span>
+          </div>
+          <div className="flex items-center gap-5 ml-auto">
+            <a href={`tel:${COMPANY_INFO.phoneRaw}`} className="hover:text-white flex items-center gap-1.5 transition-colors font-medium">
+              <Phone className="w-3 h-3 text-amber-500" />
+              {COMPANY_INFO.phone}
+            </a>
+            <a href={`mailto:${COMPANY_INFO.email}`} className="hidden sm:flex hover:text-white items-center gap-1.5 transition-colors">
+              <Mail className="w-3 h-3 text-amber-500" />
+              {COMPANY_INFO.email}
+            </a>
+            <a
+              href="/brochure.pdf"
+              download="M_Engle_Petrochemicals_Brochure.pdf"
+              className="flex items-center gap-1.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-2.5 py-1 rounded-md text-[10px] tracking-wider uppercase transition-all"
+            >
+              <FileDown className="w-3 h-3" />
+              Brochure
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* ── Main Nav ── */}
       <nav className="max-w-7xl mx-auto px-4 sm:px-8 h-[68px] flex items-center justify-between">
 
         {/* Brand */}
