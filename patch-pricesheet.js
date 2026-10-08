@@ -1,4 +1,6 @@
-'use client';
+const fs = require('fs');
+
+const pageContent = `'use client';
 
 import React, { useEffect, useState } from 'react';
 import { ArrowDownToLine, TrendingUp, Info, RefreshCw } from 'lucide-react';
@@ -41,11 +43,6 @@ export default function PriceListPage() {
   const [blackOils, setBlackOils] = useState(DEFAULT_BLACK_OILS);
   const [whiteOils, setWhiteOils] = useState(DEFAULT_WHITE_OILS);
   const [isLoadingPrices, setIsLoadingPrices] = useState(true);
-  const [currentMonth, setCurrentMonth] = useState("");
-
-  useEffect(() => {
-    setCurrentMonth(new Date().toLocaleString("default", { month: "short", year: "numeric" }));
-  }, []);
 
   // Fetch prices from Google Sheet CSV
   useEffect(() => {
@@ -85,13 +82,13 @@ export default function PriceListPage() {
             if (parsedWhite.length > 0) setWhiteOils(parsedWhite);
             setIsLoadingPrices(false);
           },
-          error: (error: any) => {
+          error: (error) => {
             console.error('Error parsing CSV:', error);
             setIsLoadingPrices(false);
           }
         });
       })
-      .catch((error: any) => {
+      .catch(error => {
         console.error('Error fetching CSV from Google Sheets:', error);
         setIsLoadingPrices(false);
       });
@@ -192,7 +189,7 @@ export default function PriceListPage() {
         <section>
           <div className="text-center mb-8">
             <div className="inline-flex items-center gap-2 bg-amber-100 text-amber-800 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-3">
-              <Info className="w-3.5 h-3.5" /> Effective: {currentMonth || "Latest"}
+              <Info className="w-3.5 h-3.5" /> Effective: {new Date().toLocaleString('default', { month: 'short', year: 'numeric' })}
             </div>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Current Wholesale Pricing</h2>
@@ -282,7 +279,7 @@ export default function PriceListPage() {
           </div>
 
           <div className="mt-8 flex justify-center">
-            <a href={`https://wa.me/${COMPANY_INFO.whatsappNumber}?text=Hi, I would like to inquire about current petroleum prices and place a bulk order.`} target="_blank" rel="noopener noreferrer" className="bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3.5 px-8 rounded-xl shadow-lg transition-all hover:scale-105 flex items-center gap-2">
+            <a href={\`https://wa.me/\${COMPANY_INFO.whatsappNumber}?text=Hi, I would like to inquire about current petroleum prices and place a bulk order.\`} target="_blank" rel="noopener noreferrer" className="bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3.5 px-8 rounded-xl shadow-lg transition-all hover:scale-105 flex items-center gap-2">
               <ArrowDownToLine className="w-5 h-5" />
               Request Official Quotation
             </a>
@@ -293,3 +290,7 @@ export default function PriceListPage() {
     </main>
   );
 }
+`;
+
+fs.writeFileSync('src/app/price-list/page.tsx', pageContent);
+console.log('Successfully upgraded Price List page to support Google Sheets CSV fetching');
