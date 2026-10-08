@@ -1,10 +1,31 @@
 'use client';
 
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { Award, CheckCircle2, ShieldCheck, Flame, FileCheck, Building2, Scale } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export default function CompliancePage() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // Only auto-scroll on mobile (where the container is scrollable)
+    const interval = setInterval(() => {
+      if (scrollRef.current && window.innerWidth < 640) { // sm breakpoint
+        const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+        
+        // If we are near the end, reset to the beginning
+        if (scrollLeft + clientWidth >= scrollWidth - 10) {
+          scrollRef.current.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+          // Scroll forward by one card width (~85vw or roughly 300px)
+          scrollRef.current.scrollBy({ left: window.innerWidth * 0.85, behavior: 'smooth' });
+        }
+      }
+    }, 2500); // 2.5 seconds per slide
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <main className="min-h-screen pt-10 pb-12 bg-slate-50 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 mt-10">
@@ -23,7 +44,7 @@ export default function CompliancePage() {
         </div>
 
         {/* Primary Certifications Grid (Swipeable on Mobile) */}
-        <div className="flex sm:grid sm:grid-cols-2 overflow-x-auto sm:overflow-visible snap-x gap-4 pb-6 -mx-4 px-4 sm:mx-0 sm:px-0 scrollbar-hide mb-6">
+        <div ref={scrollRef} className="flex sm:grid sm:grid-cols-2 overflow-x-auto sm:overflow-visible snap-x gap-4 pb-6 -mx-4 px-4 sm:mx-0 sm:px-0 scrollbar-hide mb-6">
           
           {/* PESO Card */}
           <div className="snap-start shrink-0 w-[85vw] sm:w-auto bg-white rounded-2xl p-5 border border-amber-500/30 shadow-sm shadow-amber-500/5 flex flex-col justify-between">
