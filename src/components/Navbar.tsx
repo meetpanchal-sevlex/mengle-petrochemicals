@@ -75,9 +75,8 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
 
         {/* Brand */}
         <Link href="/" className="flex items-center gap-3 group shrink-0">
-          <div className="relative w-10 h-10 rounded-xl bg-gradient-to-br from-[#0B1120] to-slate-800 flex items-center justify-center shadow-md group-hover:scale-[1.04] transition-transform duration-200">
-            <span className="text-amber-400 font-black text-xl" style={{ fontFamily: 'var(--font-sora)' }}>M</span>
-            <span className="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 bg-amber-400 rounded-full border-2 border-white" />
+          <div className="relative w-12 h-12 flex items-center justify-center group-hover:scale-[1.04] transition-transform duration-200 bg-white rounded-xl overflow-hidden shadow-sm border border-slate-200 p-1">
+            <img src="/images/logo.png" alt="M Engle Logo" className="w-full h-full object-contain" />
           </div>
           <div>
             <div className="text-[15px] font-bold tracking-[-0.03em] text-slate-900 flex items-center gap-1.5"
