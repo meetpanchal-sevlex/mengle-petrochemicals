@@ -11,7 +11,7 @@ import Papa from 'papaparse';
 // 1. Create a Google Sheet with these exact columns: Category, Product, BasicPrice, GST, Unit
 // 2. Click File -> Share -> Publish to web -> select "Comma-separated values (.csv)"
 // 3. Paste that link inside the quotes below:
-const GOOGLE_SHEET_CSV_URL = "PASTE_YOUR_GOOGLE_SHEET_CSV_LINK_HERE";
+const GOOGLE_SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRDPCHWI7Rg2dBe9p9Sf-DZX02CdEZ-L6BWlb9pkSJN8l6jxJUEgC3vtabWOe_zScumaxy7iKOiOJZ6/pub?output=csv";
 // ============================================================================
 
 const DEFAULT_BLACK_OILS = [
@@ -49,7 +49,7 @@ export default function PriceListPage() {
 
   // Fetch prices from Google Sheet CSV
   useEffect(() => {
-    if (!GOOGLE_SHEET_CSV_URL || GOOGLE_SHEET_CSV_URL === "PASTE_YOUR_GOOGLE_SHEET_CSV_LINK_HERE") {
+    if (!GOOGLE_SHEET_CSV_URL) {
       setIsLoadingPrices(false);
       return;
     }
