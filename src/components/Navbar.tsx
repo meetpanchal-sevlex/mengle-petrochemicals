@@ -144,13 +144,13 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
 
         {/* CTA Buttons */}
         <div className="hidden lg:flex items-center gap-3">
-          <button
-            onClick={onOpenQuote}
-            className="bg-[#0B1120] hover:bg-slate-800 text-white text-[13px] font-bold px-5 py-2.5 rounded-xl shadow-sm hover:shadow-md transition-all duration-200 cursor-pointer tracking-tight"
-            style={{ fontFamily: 'var(--font-plus-jakarta)' }}
-          >
-            Request Quote
-          </button>
+          <Link
+              href="/contact"
+              className="bg-[#0B1120] hover:bg-slate-800 text-white text-[13px] font-bold px-5 py-2.5 rounded-xl shadow-sm hover:shadow-md transition-all duration-200 cursor-pointer tracking-tight"
+              style={{ fontFamily: 'var(--font-plus-jakarta)' }}
+            >
+              Request Quote
+            </Link>
         </div>
 
         {/* Mobile Toggle */}
@@ -203,12 +203,13 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
               </div>
 
               <div className="pt-4 border-t border-slate-100 flex flex-col gap-3">
-                <button
-                  onClick={() => { setMobileOpen(false); onOpenQuote?.(); }}
-                  className="w-full bg-[#0B1120] text-white font-bold py-3 rounded-xl text-center text-sm cursor-pointer"
-                >
-                  Request Quote
-                </button>
+                <Link
+                    href="/contact"
+                    onClick={() => setMobileOpen(false)}
+                    className="w-full bg-[#0B1120] text-white font-bold py-3 rounded-xl text-center text-sm cursor-pointer block"
+                  >
+                    Request Quote
+                  </Link>
                 <a
                   href="/brochure.pdf"
                   download="M_Engle_Petrochemicals_Brochure.pdf"

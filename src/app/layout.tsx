@@ -56,6 +56,10 @@ export const metadata: Metadata = {
   },
 };
 
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
+import FloatingActions from '@/components/FloatingActions';
+
 export default function RootLayout({
   children,
 }: {
@@ -67,7 +71,10 @@ export default function RootLayout({
       className={`${sora.variable} ${plusJakarta.variable} ${jetbrainsMono.variable} scroll-smooth`}
     >
       <body className="min-h-screen bg-[#FAFAFA] text-[#0B1120] antialiased">
+        <Navbar />
         {children}
+        <Footer />
+        <FloatingActions />
       </body>
     </html>
   );
