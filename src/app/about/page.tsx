@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { motion } from 'framer-motion';
 import { COMPANY_INFO } from '@/data/companyData';
 import { Award, CheckCircle2, ShieldCheck, Flame, Truck, Phone, Mail, Clock, MapPin } from 'lucide-react';
 
