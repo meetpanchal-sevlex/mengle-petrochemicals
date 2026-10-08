@@ -5,7 +5,6 @@ import React, { useEffect, useRef } from 'react';
 export function TradingViewCharts() {
   const chart1Ref = useRef<HTMLDivElement>(null);
   const chart2Ref = useRef<HTMLDivElement>(null);
-  const quotesRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     // Inject Chart 1 (WTI Crude)
@@ -59,42 +58,6 @@ export function TradingViewCharts() {
       });
       chart2Ref.current.appendChild(script);
     }
-
-    // Inject Quotes
-    if (quotesRef.current && quotesRef.current.children.length === 0) {
-      const script = document.createElement('script');
-      script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js';
-      script.async = true;
-      script.innerHTML = JSON.stringify({
-        "width": "100%",
-        "height": "320",
-        "symbolsGroups": [
-          {
-            "name": "Global Energy",
-            "originalName": "Energy",
-            "symbols": [
-              { "name": "TVC:USOIL", "displayName": "WTI Crude" },
-              { "name": "TVC:UKOIL", "displayName": "Brent Crude" },
-              { "name": "CAPITALCOM:NATURALGAS", "displayName": "Natural Gas" }
-            ]
-          },
-          {
-            "name": "Industrial Metals",
-            "symbols": [
-              { "name": "TVC:GOLD", "displayName": "Gold" },
-              { "name": "TVC:SILVER", "displayName": "Silver" },
-              { "name": "OANDA:XCUUSD", "displayName": "Copper" }
-            ]
-          }
-        ],
-        "showSymbolLogo": false,
-        "isTransparent": true,
-        "colorTheme": "dark",
-        "locale": "en",
-        "backgroundColor": "#0B1120"
-      });
-      quotesRef.current.appendChild(script);
-    }
   }, []);
 
   return (
@@ -104,9 +67,6 @@ export function TradingViewCharts() {
       </div>
       <div className="h-[280px] bg-[#0F172A] rounded-2xl border border-slate-800 overflow-hidden shadow-lg p-1">
         <div ref={chart2Ref} className="tradingview-widget-container h-full w-full" />
-      </div>
-      <div className="bg-[#0F172A] rounded-2xl border border-slate-800 overflow-hidden shadow-lg p-1 sm:p-4">
-        <div ref={quotesRef} className="tradingview-widget-container w-full" />
       </div>
     </div>
   );
