@@ -31,7 +31,7 @@ export default function CompliancePage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-8 mt-10">
         
         {/* Page Header */}
-        <div className="max-w-3xl mb-8">
+        <div className="max-w-3xl mb-8 mx-auto text-center">
           <div className="text-[10px] font-bold uppercase tracking-widest text-amber-600 mb-2">
             Licenses & Authorizations
           </div>
@@ -47,9 +47,9 @@ export default function CompliancePage() {
         <div ref={scrollRef} className="flex sm:grid sm:grid-cols-2 overflow-x-auto sm:overflow-visible snap-x gap-4 pb-6 -mx-4 px-4 sm:mx-0 sm:px-0 scrollbar-hide mb-6">
           
           {/* PESO Card */}
-          <div className="snap-start shrink-0 w-[85vw] sm:w-auto bg-white rounded-2xl p-5 border border-amber-500/30 shadow-sm shadow-amber-500/5 flex flex-col justify-between">
+          <div className="snap-start shrink-0 w-[85vw] sm:w-auto bg-white rounded-2xl p-5 border text-center border-amber-500/30 shadow-sm shadow-amber-500/5 flex flex-col justify-between">
             <div>
-              <div className="w-10 h-10 bg-amber-50 rounded-xl flex items-center justify-center mb-4">
+              <div className="w-10 h-10 bg-amber-50 rounded-xl flex items-center justify-center mb-4 mx-auto">
                 <ShieldCheck className="w-5 h-5 text-amber-600" />
               </div>
               <h2 className="text-lg font-extrabold text-slate-900 mb-1">
@@ -65,9 +65,9 @@ export default function CompliancePage() {
           </div>
 
           {/* MSME Card */}
-          <div className="snap-start shrink-0 w-[85vw] sm:w-auto bg-white rounded-2xl p-5 border border-slate-200 shadow-sm flex flex-col justify-between">
+          <div className="snap-start shrink-0 w-[85vw] sm:w-auto bg-white rounded-2xl p-5 border text-center border-slate-200 shadow-sm flex flex-col justify-between">
             <div>
-              <div className="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center mb-4">
+              <div className="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center mb-4 mx-auto">
                 <Building2 className="w-5 h-5 text-blue-600" />
               </div>
               <h2 className="text-lg font-extrabold text-slate-900 mb-1">
@@ -83,9 +83,9 @@ export default function CompliancePage() {
           </div>
 
           {/* GST Card */}
-          <div className="snap-start shrink-0 w-[85vw] sm:w-auto bg-white rounded-2xl p-5 border border-slate-200 shadow-sm flex flex-col justify-between">
+          <div className="snap-start shrink-0 w-[85vw] sm:w-auto bg-white rounded-2xl p-5 border text-center border-slate-200 shadow-sm flex flex-col justify-between">
             <div>
-              <div className="w-10 h-10 bg-emerald-50 rounded-xl flex items-center justify-center mb-4">
+              <div className="w-10 h-10 bg-emerald-50 rounded-xl flex items-center justify-center mb-4 mx-auto">
                 <FileCheck className="w-5 h-5 text-emerald-600" />
               </div>
               <h2 className="text-lg font-extrabold text-slate-900 mb-1">
@@ -101,9 +101,9 @@ export default function CompliancePage() {
           </div>
 
           {/* Quality Card */}
-          <div className="snap-start shrink-0 w-[85vw] sm:w-auto bg-white rounded-2xl p-5 border border-slate-200 shadow-sm flex flex-col justify-between">
+          <div className="snap-start shrink-0 w-[85vw] sm:w-auto bg-white rounded-2xl p-5 border text-center border-slate-200 shadow-sm flex flex-col justify-between">
             <div>
-              <div className="w-10 h-10 bg-purple-50 rounded-xl flex items-center justify-center mb-4">
+              <div className="w-10 h-10 bg-purple-50 rounded-xl flex items-center justify-center mb-4 mx-auto">
                 <Scale className="w-5 h-5 text-purple-600" />
               </div>
               <h2 className="text-lg font-extrabold text-slate-900 mb-1">
