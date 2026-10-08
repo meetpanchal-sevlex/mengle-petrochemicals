@@ -153,7 +153,7 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
           </div>
 
           <a href="#credentials" className="hover:text-slate-900 transition-colors">Compliance</a>
-          <a href="#offices" className="hover:text-slate-900 transition-colors">Locations</a>
+          
           <a href="#contact" className="hover:text-slate-900 transition-colors">Contact</a>
         </div>
 
@@ -189,8 +189,8 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
             style={{ fontFamily: 'var(--font-plus-jakarta)' }}
           >
             <div className="px-5 py-6 space-y-4">
-              {['/', '#about', '#credentials', '#offices', '#contact'].map((href, i) => {
-                const labels = ['Home', 'About Us', 'Compliance & Licenses', 'Depot Locations', 'Contact'];
+              {['/', '#about', '#credentials', '#contact'].map((href, i) => {
+                const labels = ['Home', 'About Us', 'Compliance & Licenses', 'Contact'];
                 return (
                   <Link
                     key={i}
