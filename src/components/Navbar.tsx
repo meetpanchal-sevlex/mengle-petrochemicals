@@ -33,7 +33,7 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
   return (
     <header
       className={cn(
-        'w-full sticky top-0 z-50 transition-all duration-300',
+        'w-full relative z-50 transition-all duration-300',
         scrolled
           ? 'bg-white/90 backdrop-blur-lg shadow-[0_1px_0_0_rgba(0,0,0,0.06),0_4px_16px_-4px_rgba(0,0,0,0.08)] border-b border-neutral-200/70'
           : 'bg-white border-b border-neutral-200/50'
