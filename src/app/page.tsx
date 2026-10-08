@@ -121,10 +121,10 @@ export default function HomePage() {
 
                 <motion.p
                   variants={fadeUp}
-                  className="text-slate-400 text-sm sm:text-base leading-relaxed max-w-2xl"
+                  className="text-slate-300 text-base sm:text-lg lg:text-xl font-medium leading-relaxed max-w-2xl"
                   style={{ fontFamily: 'var(--font-plus-jakarta)' }}
                 >
-                  {COMPANY_INFO.description} Trusted partner for high-grade industrial fuels, base oils, specialty solvents, and aromatic hydrocarbons with consistent specs and prompt logistics.
+                  Delivering lab-tested industrial fuels, base oils, and specialty solvents with uncompromising consistency and pan-India logistics.
                 </motion.p>
 
                 {/* Categories Pill Strip */}

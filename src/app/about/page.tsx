@@ -23,8 +23,8 @@ export default function AboutPage() {
                   </h2>
                 </div>
 
-                <p className="text-slate-600 leading-relaxed text-sm sm:text-base">
-                  M Engle Petroleum is a professionally managed petroleum company focused on the distribution and supply of petroleum products and allied industrial solutions. We are committed to serving businesses with dependable products, consistent supply, and professional service, while maintaining a strong emphasis on statutory compliance and responsible operations.
+                <p className="text-slate-600 leading-relaxed text-lg sm:text-xl font-medium">
+                  We distribute premium petroleum products and industrial chemicals to businesses across India. Partner with us for dependable supply chains, lab-tested specifications, and uncompromising regulatory compliance.
                 </p>
 
                 <div className="p-4 rounded-xl bg-slate-50 border border-slate-200">
