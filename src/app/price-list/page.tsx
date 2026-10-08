@@ -1,335 +1,209 @@
-'use client';
-
-import React, { useEffect, useState } from 'react';
-import { ArrowDownToLine, TrendingUp, Info, RefreshCw } from 'lucide-react';
+import React from 'react';
+import { ArrowDownToLine, TrendingUp, Info } from 'lucide-react';
 import { COMPANY_INFO } from '@/data/companyData';
 import Papa from 'papaparse';
+import { TradingViewCharts } from '@/components/TradingViewCharts';
 
 // ============================================================================
-// Google Sheets Integration (Auto-Updating Prices)
+// Google Sheets Integration (Auto-Updating Prices via Native Next.js Server Fetch)
 // ============================================================================
-// 1. Create a Google Sheet with these exact columns: Category, Product, BasicPrice, GST, Unit
-// 2. Click File -> Share -> Publish to web -> select "Comma-separated values (.csv)"
-// 3. Paste that link inside the quotes below:
 const GOOGLE_SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRDPCHWI7Rg2dBe9p9Sf-DZX02CdEZ-L6BWlb9pkSJN8l6jxJUEgC3vtabWOe_zScumaxy7iKOiOJZ6/pub?output=csv";
-// ============================================================================
 
-const DEFAULT_BLACK_OILS = [
-  { name: 'Furnace Oil (FO)', basic: 83.00, gst: 18, unit: 'KGS' },
-  { name: 'Light Diesel Oil (LDO)', basic: 97.00, gst: 18, unit: 'LTR' },
-  { name: 'Fuel Oil', basic: 62.00, gst: 18, unit: 'LTR' },
-  { name: 'Low Sulphur Heavy Stock (LSHS)', basic: 83.00, gst: 18, unit: 'KGS' },
-  { name: 'Pyrolysis Oil', basic: 75.00, gst: 18, unit: 'KGS' },
-];
+// Next.js config to force server-side dynamic rendering (or cache heavily)
+// (Dynamic rendering) // Cache on Edge CDN for 60 seconds
 
-const DEFAULT_WHITE_OILS = [
-  { name: 'Mineral Turpentine Oil (MTO)', basic: 118.00, gst: 18, unit: 'LTR' },
-  { name: 'Naphtha', basic: 92.00, gst: 18, unit: 'LTR' },
-  { name: 'C9 Solvent', basic: 95.00, gst: 18, unit: 'KGS' },
-  { name: 'C10 Solvent', basic: 128.00, gst: 18, unit: 'KGS' },
-  { name: 'LLP Oil (IP Grade)', basic: 97.00, gst: 18, unit: 'KGS' },
-];
+async function fetchGoogleSheetPrices() {
+  try {
+    const res = await fetch(GOOGLE_SHEET_CSV_URL, {
+      next: { revalidate: 60 } // Revalidate every 60 seconds natively
+    });
+    const csvText = await res.text();
+    
+    return new Promise<{ parsedBlack: any[], parsedWhite: any[] }>((resolve) => {
+      Papa.parse(csvText, {
+        header: true,
+        skipEmptyLines: true,
+        complete: (results) => {
+          const parsedBlack: any[] = [];
+          const parsedWhite: any[] = [];
+          
+          results.data.forEach((row: any) => {
+            if (!row.Category || !row.Product || !row.BasicPrice) return;
+            
+            const item = {
+              name: row.Product.trim(),
+              basic: parseFloat(row.BasicPrice) || 0,
+              gstRate: parseFloat(row.GST) || 18,
+              unit: row.Unit?.trim() || 'Ltr',
+            };
 
-function calculateTotal(basic: number, gstRate: number) {
-  const cgst = Number((basic * (gstRate / 2) / 100).toFixed(2));
-  const sgst = Number((basic * (gstRate / 2) / 100).toFixed(2));
-  const total = Number((basic + cgst + sgst).toFixed(2));
-  return { basic, cgst, sgst, total };
+            if (row.Category.trim().toUpperCase() === 'BLACK') {
+              parsedBlack.push(item);
+            } else if (row.Category.trim().toUpperCase() === 'WHITE') {
+              parsedWhite.push(item);
+            }
+          });
+          resolve({ parsedBlack, parsedWhite });
+        }
+      });
+    });
+  } catch (error) {
+    console.error('Server failed to fetch Google Sheets:', error);
+    return { parsedBlack: [], parsedWhite: [] };
+  }
 }
 
-export default function PriceListPage() {
-  const [blackOils, setBlackOils] = useState(DEFAULT_BLACK_OILS);
-  const [whiteOils, setWhiteOils] = useState(DEFAULT_WHITE_OILS);
-  const [isLoadingPrices, setIsLoadingPrices] = useState(true);
-  const [currentMonth, setCurrentMonth] = useState("");
-
-  useEffect(() => {
-    setCurrentMonth(new Date().toLocaleString("default", { month: "short", year: "numeric" }));
-  }, []);
-
-  // Fetch prices from Google Sheet CSV
-  useEffect(() => {
-    if (!GOOGLE_SHEET_CSV_URL) {
-      setIsLoadingPrices(false);
-      return;
-    }
-
-    fetch(GOOGLE_SHEET_CSV_URL, { cache: 'no-store' })
-      .then(res => res.text())
-      .then(csvText => {
-        Papa.parse(csvText, {
-          header: true,
-          skipEmptyLines: true,
-          complete: (results) => {
-            const parsedBlack: any[] = [];
-            const parsedWhite: any[] = [];
-            
-            results.data.forEach((row: any) => {
-              if (!row.Category || !row.Product || !row.BasicPrice) return;
-              
-              const item = {
-                name: row.Product.trim(),
-                basic: parseFloat(row.BasicPrice) || 0,
-                gst: parseFloat(row.GST) || 18,
-                unit: (row.Unit || 'KGS').trim().toUpperCase()
-              };
-
-              if (row.Category.trim().toLowerCase().includes('black')) {
-                parsedBlack.push(item);
-              } else if (row.Category.trim().toLowerCase().includes('white')) {
-                parsedWhite.push(item);
-              }
-            });
-
-            if (parsedBlack.length > 0) setBlackOils(parsedBlack);
-            if (parsedWhite.length > 0) setWhiteOils(parsedWhite);
-            setIsLoadingPrices(false);
-          },
-          error: (error: any) => {
-            console.error('Error parsing CSV:', error);
-            setIsLoadingPrices(false);
-          }
-        });
-      })
-      .catch((error: any) => {
-        console.error('Error fetching CSV from Google Sheets:', error);
-        setIsLoadingPrices(false);
-      });
-  }, []);
-
+export default async function PriceListPage() {
+  const { parsedBlack, parsedWhite } = await fetchGoogleSheetPrices();
   
-  // Inject TradingView Commodities Widget
-  useEffect(() => {
-    const container = document.getElementById('tradingview_commodities');
-    if (container && !container.hasChildNodes()) {
-      const script = document.createElement('script');
-      script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js';
-      script.async = true;
-      script.innerHTML = JSON.stringify({
-        "width": "100%",
-        "height": "320",
-        "symbolsGroups": [
-          {
-            "name": "Global Commodities",
-            "originalName": "Commodities",
-            "symbols": [
-              { "name": "TVC:USOIL", "displayName": "WTI Crude Oil" },
-              { "name": "TVC:UKOIL", "displayName": "Brent Crude Oil" },
-              { "name": "CAPITALCOM:NATURALGAS", "displayName": "Natural Gas" },
-              { "name": "TVC:GOLD", "displayName": "Gold" },
-              { "name": "TVC:SILVER", "displayName": "Silver" },
-              { "name": "OANDA:XCUUSD", "displayName": "Copper" }
-            ]
-          }
-        ],
-        "showSymbolLogo": true,
-        "isTransparent": false,
-        "colorTheme": "light",
-        "locale": "en",
-        "backgroundColor": "#ffffff"
-      });
-      container.appendChild(script);
-    }
-  }, []);
-
-
-  // Inject TradingView Widget
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.src = 'https://s3.tradingview.com/tv.js';
-    script.async = true;
-    script.onload = () => {
-      if (typeof window !== 'undefined' && (window as any).TradingView) {
-        new (window as any).TradingView.widget({
-          "autosize": true,
-          "symbol": "TVC:USOIL",
-          "interval": "D",
-          "timezone": "Asia/Kolkata",
-          "theme": "light",
-          "style": "1",
-          "locale": "en",
-          "enable_publishing": false,
-          "backgroundColor": "rgba(255, 255, 255, 1)",
-          "gridColor": "rgba(240, 243, 250, 0)",
-          "hide_top_toolbar": false,
-          "hide_legend": false,
-          "save_image": false,
-          "container_id": "tradingview_wti"
-        });
-
-        new (window as any).TradingView.widget({
-          "autosize": true,
-          "symbol": "TVC:UKOIL",
-          "interval": "D",
-          "timezone": "Asia/Kolkata",
-          "theme": "light",
-          "style": "1",
-          "locale": "en",
-          "enable_publishing": false,
-          "backgroundColor": "rgba(255, 255, 255, 1)",
-          "gridColor": "rgba(240, 243, 250, 0)",
-          "hide_top_toolbar": false,
-          "hide_legend": false,
-          "save_image": false,
-          "container_id": "tradingview_brent"
-        });
-      }
-    };
-    document.head.appendChild(script);
-
-    return () => {
-      if (document.head.contains(script)) {
-        document.head.removeChild(script);
-      }
-    };
-  }, []);
+  // Format dates securely on the server
+  const currentMonth = "Active Trading Period";
+  
 
   return (
-    <main className="min-h-screen bg-slate-50 pt-[104px] pb-20">
-      
-      {/* Page Header */}
-      <div className="bg-slate-900 text-white py-12 px-4 sm:px-8 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-amber-500 via-transparent to-transparent"></div>
-        <div className="max-w-7xl mx-auto relative z-10 text-center">
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight mb-4" style={{ fontFamily: 'var(--font-sora)' }}>
-            Live Markets & Price List
-          </h1>
-          <p className="text-slate-400 text-sm sm:text-lg max-w-2xl mx-auto">
-            Stay updated with global crude fluctuations and our current wholesale petroleum prices.
-          </p>
-        </div>
-      </div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 mt-12 space-y-16">
-        
-        {/* Live Stock Widget Section */}
-        <section>
-          <div className="flex items-center gap-3 mb-6">
-            <div className="w-10 h-10 bg-amber-100 rounded-xl flex items-center justify-center text-amber-600">
-              <TrendingUp className="w-5 h-5" />
-            </div>
+    <main className="min-h-screen pt-20 bg-slate-50">
+      {/* Hero Section */}
+      <section className="bg-[#0B1120] text-white pt-16 pb-24 border-b border-slate-800 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581094288338-2314dddb7ece?auto=format&fit=crop&q=80')] opacity-5 mix-blend-overlay"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div>
-              <h2 className="text-2xl font-bold text-slate-900">Live Crude Oil Markets</h2>
-              <p className="text-xs text-slate-500">WTI & Brent Crude (USD/BBL) - Real-time Data</p>
+              <div className="text-amber-500 font-bold tracking-widest uppercase text-xs mb-3 flex items-center gap-2">
+                <TrendingUp className="w-4 h-4" /> Official Rate Card
+              </div>
+              <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight mb-4" style={{ fontFamily: 'var(--font-sora)' }}>
+                Bulk Pricing & Indices
+              </h1>
+              <p className="text-slate-400 max-w-2xl text-sm leading-relaxed">
+                Live ex-depot basic rates for wholesale industrial commodities. Rates are updated daily and subject to standard GST and transport actuals.
+              </p>
+            </div>
+            <div className="flex items-center gap-4 bg-slate-900/80 p-4 rounded-xl border border-slate-800 shadow-xl backdrop-blur-md">
+              <div>
+                <div className="text-[10px] text-slate-500 uppercase font-bold tracking-wider mb-1">Effective Period</div>
+                <div className="text-white font-bold">{currentMonth}</div>
+              </div>
+              <div className="w-px h-8 bg-slate-700 mx-2"></div>
+              <div>
+                <div className="text-[10px] text-slate-500 uppercase font-bold tracking-wider mb-1">Last Sync</div>
+                <div className="text-emerald-400 font-bold text-xs flex items-center gap-1">
+                  Server Pre-Rendered
+                </div>
+              </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Main Content */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-8 -mt-10 relative z-20 pb-20 grid grid-cols-1 lg:grid-cols-12 gap-8">
+        
+        {/* Left Column: Pricing Tables (Server Fetched!) */}
+        <div className="lg:col-span-8 space-y-8">
           
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <div className="w-full h-[450px] bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm p-2">
-              <div id="tradingview_wti" className="w-full h-full"></div>
+          {/* Black Oils Table */}
+          <div className="bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden">
+            <div className="bg-slate-900 px-6 py-4 flex items-center justify-between">
+              <h2 className="text-lg font-bold text-white flex items-center gap-2">
+                <div className="w-3 h-3 rounded-full bg-amber-500"></div>
+                Black Oils (Furnace / LDO)
+              </h2>
             </div>
-            <div className="w-full h-[450px] bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm p-2">
-              <div id="tradingview_brent" className="w-full h-full"></div>
-            </div>
-          </div>
-
-          <div className="mt-8 bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm p-2">
-            <div id="tradingview_commodities" className="w-full h-[320px]"></div>
-          </div>
-        </section>
-
-        {/* Pricing Tables Section */}
-        <section>
-          <div className="text-center mb-8">
-            <div className="inline-flex items-center gap-2 bg-amber-100 text-amber-800 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-3">
-              <Info className="w-3.5 h-3.5" /> Effective: {currentMonth || "Latest"}
-            </div>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Current Wholesale Pricing</h2>
-              {isLoadingPrices && <RefreshCw className="w-5 h-5 text-slate-400 animate-spin" />}
-            </div>
-            <p className="text-slate-500 mt-2 text-sm">Prices are subject to change without prior notice based on global crude market variations.</p>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            
-            {/* Black Oils Table */}
-            <div className="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
-              <div className="bg-slate-900 p-5 text-white">
-                <h3 className="text-lg font-bold">Black Oils & Heavy Fuels</h3>
-              </div>
-              <div className="overflow-x-auto">
-                <table className="w-full text-left text-sm text-slate-600">
-                  <thead className="text-xs uppercase bg-slate-50 text-slate-500 font-bold border-b border-slate-200">
-                    <tr>
-                      <th className="px-6 py-4">Product</th>
-                      <th className="px-4 py-4 text-right">Basic (₹)</th>
-                      <th className="px-4 py-4 text-right">CGST (9%)</th>
-                      <th className="px-4 py-4 text-right">SGST (9%)</th>
-                      <th className="px-6 py-4 text-right bg-slate-100 text-slate-900">Total (₹)</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-slate-100">
-                    {blackOils.map((item, idx) => {
-                      const calc = calculateTotal(item.basic, item.gst);
+            <div className="overflow-x-auto">
+              <table className="w-full text-left border-collapse">
+                <thead>
+                  <tr className="bg-slate-50 border-b border-slate-200 text-xs uppercase tracking-wider text-slate-500 font-bold">
+                    <th className="py-4 px-6">Product Grade</th>
+                    <th className="py-4 px-6 text-right">Basic Price</th>
+                    <th className="py-4 px-6 text-right">GST</th>
+                    <th className="py-4 px-6 text-right">Total Estimated</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-100">
+                  {parsedBlack.length === 0 ? (
+                    <tr><td colSpan={4} className="py-8 text-center text-slate-400">Failed to fetch Black Oils.</td></tr>
+                  ) : (
+                    parsedBlack.map((item, idx) => {
+                      const gstAmount = item.basic * (item.gstRate / 100);
+                      const total = item.basic + gstAmount;
                       return (
-                        <tr key={idx} className="hover:bg-slate-50/50 transition-colors">
-                          <td className="px-6 py-4 font-medium text-slate-900">
-                            {item.name} <span className="text-[10px] text-slate-400 font-normal ml-1">/ {item.unit}</span>
-                          </td>
-                          <td className="px-4 py-4 text-right">{calc.basic.toFixed(2)}</td>
-                          <td className="px-4 py-4 text-right">{calc.cgst.toFixed(2)}</td>
-                          <td className="px-4 py-4 text-right">{calc.sgst.toFixed(2)}</td>
-                          <td className="px-6 py-4 text-right font-bold text-slate-900 bg-slate-50">
-                            {calc.total.toFixed(2)}
-                          </td>
+                        <tr key={idx} className="hover:bg-slate-50 transition-colors group">
+                          <td className="py-4 px-6 font-bold text-slate-900">{item.name}</td>
+                          <td className="py-4 px-6 text-right font-mono text-sm"><span className="font-bold">{item.basic.toFixed(2)}</span><span className="text-[10px] text-slate-400 ml-1">/{item.unit}</span></td>
+                          <td className="py-4 px-6 text-right text-slate-500 text-sm">{item.gstRate}%</td>
+                          <td className="py-4 px-6 text-right font-mono text-sm text-amber-700 font-bold">{total.toFixed(2)}</td>
                         </tr>
                       );
-                    })}
-                  </tbody>
-                </table>
-              </div>
+                    })
+                  )}
+                </tbody>
+              </table>
             </div>
+          </div>
 
-            {/* White Oils Table */}
-            <div className="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
-              <div className="bg-amber-500 p-5 text-slate-900">
-                <h3 className="text-lg font-bold">White Oils & Solvents</h3>
-              </div>
-              <div className="overflow-x-auto">
-                <table className="w-full text-left text-sm text-slate-600">
-                  <thead className="text-xs uppercase bg-slate-50 text-slate-500 font-bold border-b border-slate-200">
-                    <tr>
-                      <th className="px-6 py-4">Product</th>
-                      <th className="px-4 py-4 text-right">Basic (₹)</th>
-                      <th className="px-4 py-4 text-right">CGST (9%)</th>
-                      <th className="px-4 py-4 text-right">SGST (9%)</th>
-                      <th className="px-6 py-4 text-right bg-slate-100 text-slate-900">Total (₹)</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-slate-100">
-                    {whiteOils.map((item, idx) => {
-                      const calc = calculateTotal(item.basic, item.gst);
+          {/* White Oils Table */}
+          <div className="bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden">
+            <div className="bg-slate-900 px-6 py-4 flex items-center justify-between">
+              <h2 className="text-lg font-bold text-white flex items-center gap-2">
+                <div className="w-3 h-3 rounded-full bg-sky-400"></div>
+                White Oils & Solvents (MTO / C9)
+              </h2>
+            </div>
+            <div className="overflow-x-auto">
+              <table className="w-full text-left border-collapse">
+                <thead>
+                  <tr className="bg-slate-50 border-b border-slate-200 text-xs uppercase tracking-wider text-slate-500 font-bold">
+                    <th className="py-4 px-6">Product Grade</th>
+                    <th className="py-4 px-6 text-right">Basic Price</th>
+                    <th className="py-4 px-6 text-right">GST</th>
+                    <th className="py-4 px-6 text-right">Total Estimated</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-100">
+                  {parsedWhite.length === 0 ? (
+                    <tr><td colSpan={4} className="py-8 text-center text-slate-400">Failed to fetch White Oils.</td></tr>
+                  ) : (
+                    parsedWhite.map((item, idx) => {
+                      const gstAmount = item.basic * (item.gstRate / 100);
+                      const total = item.basic + gstAmount;
                       return (
-                        <tr key={idx} className="hover:bg-amber-50/30 transition-colors">
-                          <td className="px-6 py-4 font-medium text-slate-900">
-                            {item.name} <span className="text-[10px] text-slate-400 font-normal ml-1">/ {item.unit}</span>
-                          </td>
-                          <td className="px-4 py-4 text-right">{calc.basic.toFixed(2)}</td>
-                          <td className="px-4 py-4 text-right">{calc.cgst.toFixed(2)}</td>
-                          <td className="px-4 py-4 text-right">{calc.sgst.toFixed(2)}</td>
-                          <td className="px-6 py-4 text-right font-bold text-slate-900 bg-amber-50/50">
-                            {calc.total.toFixed(2)}
-                          </td>
+                        <tr key={idx} className="hover:bg-slate-50 transition-colors group">
+                          <td className="py-4 px-6 font-bold text-slate-900">{item.name}</td>
+                          <td className="py-4 px-6 text-right font-mono text-sm"><span className="font-bold">{item.basic.toFixed(2)}</span><span className="text-[10px] text-slate-400 ml-1">/{item.unit}</span></td>
+                          <td className="py-4 px-6 text-right text-slate-500 text-sm">{item.gstRate}%</td>
+                          <td className="py-4 px-6 text-right font-mono text-sm text-amber-700 font-bold">{total.toFixed(2)}</td>
                         </tr>
                       );
-                    })}
-                  </tbody>
-                </table>
-              </div>
+                    })
+                  )}
+                </tbody>
+              </table>
             </div>
-
           </div>
 
-          <div className="mt-8 flex justify-center">
-            <a href={`https://wa.me/${COMPANY_INFO.whatsappNumber}?text=Hi, I would like to inquire about current petroleum prices and place a bulk order.`} target="_blank" rel="noopener noreferrer" className="bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3.5 px-8 rounded-xl shadow-lg transition-all hover:scale-105 flex items-center gap-2">
-              <ArrowDownToLine className="w-5 h-5" />
-              Request Official Quotation
-            </a>
+          <div className="p-4 bg-amber-50 rounded-xl border border-amber-200 flex gap-3 text-amber-800 text-xs leading-relaxed shadow-inner">
+            <Info className="w-4 h-4 shrink-0 mt-0.5 text-amber-600" />
+            <p>
+              <strong>Commercial Disclaimer:</strong> Rates mentioned above are strictly for Bulk Loads ex-depot. Transport charges, state-specific tolls, and loading un-loading charges will be added at actuals. Final billing will be governed by the rate applicable at the time of tanker dispatch, regardless of advance payment date.
+            </p>
           </div>
+        </div>
 
-        </section>
-      </div>
+        {/* Right Column: Isolated Client-Side Interactive Widgets */}
+        <div className="lg:col-span-4 space-y-6">
+          <div className="bg-[#0B1120] rounded-2xl p-6 shadow-xl border border-slate-800 text-white">
+            <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
+              <TrendingUp className="w-5 h-5 text-amber-500" />
+              Live Market Indices
+            </h3>
+            <p className="text-xs text-slate-400 mb-6 leading-relaxed">
+              Global energy markets dictate localized depot pricing. Monitor real-time WTI and Brent Crude fluctuations below.
+            </p>
+            {/* The isolated client component for injection scripts */}
+            <TradingViewCharts />
+          </div>
+        </div>
+      </section>
     </main>
   );
 }

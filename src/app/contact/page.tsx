@@ -1,4 +1,3 @@
-'use client';
 
 import React from 'react';
 import { COMPANY_INFO } from '@/data/companyData';
@@ -63,13 +62,13 @@ export default function ContactPage() {
                   </div>
 
                   <div className="space-y-4">
-                    <button
-                      onClick={() => window.location.href = '/'}
+                    <a href="/contact"
+                      
                       className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 px-4 rounded-xl text-sm flex items-center justify-center gap-2 shadow-md transition-all cursor-pointer"
                     >
                       <span>Open Quote Generator</span>
                       <ArrowRight className="w-4 h-4" />
-                    </button>
+                    </a>
 
                     <a
                       href="/brochure.pdf"
