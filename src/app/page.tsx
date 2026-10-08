@@ -106,17 +106,17 @@ export default function HomePage() {
                     className="text-[2.25rem] sm:text-5xl lg:text-[3.75rem] font-extrabold leading-[1.08] tracking-[-0.03em]"
                     style={{ fontFamily: 'var(--font-sora)' }}
                   >
-                    POWERING INDUSTRY. <br />
+                    Industrial Oil & <br />
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-300 to-amber-500">
-                      DELIVERING PERFORMANCE.
+                      Chemical Solutions
                     </span>
                   </h1>
-                  <p
-                    className="text-lg sm:text-xl text-slate-300 font-semibold tracking-tight"
+                  <h2
+                    className="text-sm sm:text-base text-slate-300 font-bold tracking-widest uppercase mt-3"
                     style={{ fontFamily: 'var(--font-plus-jakarta)' }}
                   >
-                    Industrial Oil & Chemical Solutions
-                  </p>
+                    Powering Industry. Delivering Performance.
+                  </h2>
                 </motion.div>
 
                 <motion.p
