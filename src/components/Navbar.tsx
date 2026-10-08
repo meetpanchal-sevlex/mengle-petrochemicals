@@ -71,11 +71,11 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
       </div>
 
       {/* ── Main Nav ── */}
-      <nav className="max-w-7xl mx-auto px-4 sm:px-8 h-[68px] flex items-center justify-between">
+      <nav className="max-w-7xl mx-auto px-4 sm:px-8 py-4 min-h-[80px] md:min-h-[96px] flex items-center justify-between">
 
         {/* Brand */}
         <Link href="/" className="flex items-center group shrink-0">
-            <img src="/images/logo.png" alt="M Engle Logo" className="h-16 md:h-20 w-auto object-contain group-hover:opacity-90 transition-opacity duration-200 mix-blend-multiply" />
+            <img src="/images/logo.png" alt="M Engle Logo" className="h-14 md:h-16 w-auto max-w-[200px] md:max-w-[250px] object-contain group-hover:opacity-90 transition-opacity duration-200 mix-blend-multiply" />
           </Link>
 
         {/* Desktop Links */}
