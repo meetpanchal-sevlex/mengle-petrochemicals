@@ -1,4 +1,6 @@
-'use client';
+const fs = require('fs');
+
+const pageContent = `'use client';
 
 import React, { useRef, useEffect } from 'react';
 import { Award, CheckCircle2, ShieldCheck, Flame, FileCheck, Building2, Scale, ArrowRight } from 'lucide-react';
@@ -141,3 +143,7 @@ export default function CompliancePage() {
     </main>
   );
 }
+`;
+
+fs.writeFileSync('src/app/compliance/page.tsx', pageContent);
+console.log('Rebuilt compliance page into edge-to-edge Laundry Mall hero style');
