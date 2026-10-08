@@ -74,25 +74,9 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
       <nav className="max-w-7xl mx-auto px-4 sm:px-8 h-[68px] flex items-center justify-between">
 
         {/* Brand */}
-        <Link href="/" className="flex items-center gap-3 group shrink-0">
-          <div className="relative w-10 h-10 rounded-xl bg-gradient-to-br from-[#0B1120] to-slate-800 flex items-center justify-center shadow-md group-hover:scale-[1.04] transition-transform duration-200">
-              <span className="text-amber-400 font-black text-xl" style={{ fontFamily: 'var(--font-sora)' }}>M</span>
-              <span className="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 bg-amber-400 rounded-full border-2 border-white" />
-            </div>
-          <div>
-            <div className="text-[15px] font-bold tracking-[-0.03em] text-slate-900 flex items-center gap-1.5"
-              style={{ fontFamily: 'var(--font-sora)' }}>
-              M. ENGLE
-              <span className="text-[9px] font-bold uppercase tracking-widest px-1.5 py-0.5 rounded-md bg-amber-100 text-amber-800 border border-amber-200">
-                PETRO
-              </span>
-            </div>
-            <div className="text-[10px] tracking-widest text-slate-400 uppercase font-semibold"
-              style={{ fontFamily: 'var(--font-plus-jakarta)' }}>
-              Industrial Oil & Chemicals
-            </div>
-          </div>
-        </Link>
+        <Link href="/" className="flex items-center group shrink-0">
+            <img src="/images/logo.png" alt="M Engle Logo" className="w-36 md:w-44 h-auto object-contain group-hover:opacity-90 transition-opacity duration-200" />
+          </Link>
 
         {/* Desktop Links */}
         <div className="hidden lg:flex items-center gap-7 text-[13px] font-semibold text-slate-600"
