@@ -73,7 +73,7 @@ export function TradingViewCharts() {
             "name": "Global Energy",
             "originalName": "Energy",
             "symbols": [
-              { "name": "TVC:USOIL", "displayName": "WTI Crude Oil" },
+              { "name": "TVC:USOIL", "displayName": "WTI Crude" },
               { "name": "TVC:UKOIL", "displayName": "Brent Crude" },
               { "name": "CAPITALCOM:NATURALGAS", "displayName": "Natural Gas" }
             ]
@@ -87,7 +87,7 @@ export function TradingViewCharts() {
             ]
           }
         ],
-        "showSymbolLogo": true,
+        "showSymbolLogo": false,
         "isTransparent": true,
         "colorTheme": "dark",
         "locale": "en",
@@ -105,7 +105,7 @@ export function TradingViewCharts() {
       <div className="h-[280px] bg-[#0F172A] rounded-2xl border border-slate-800 overflow-hidden shadow-lg p-1">
         <div ref={chart2Ref} className="tradingview-widget-container h-full w-full" />
       </div>
-      <div className="bg-[#0F172A] rounded-2xl border border-slate-800 overflow-hidden shadow-lg p-4">
+      <div className="bg-[#0F172A] rounded-2xl border border-slate-800 overflow-hidden shadow-lg p-1 sm:p-4">
         <div ref={quotesRef} className="tradingview-widget-container w-full" />
       </div>
     </div>
