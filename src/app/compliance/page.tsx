@@ -22,7 +22,7 @@ export default function CompliancePage() {
   }, []);
 
   return (
-    <main className="min-h-screen pb-12 bg-slate-50 pt-[68px]">
+    <main className="min-h-screen pb-12 bg-slate-50">
       
       {/* Edge-to-Edge Auto-Scrolling Hero Banners (Like Laundry Mall) */}
       <div 

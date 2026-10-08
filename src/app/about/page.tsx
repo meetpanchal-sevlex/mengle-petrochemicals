@@ -6,7 +6,7 @@ import { Award, CheckCircle2, ShieldCheck, Flame, Truck, Phone, Mail, Clock, Map
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen pt-20 bg-slate-50">
+    <main className="min-h-screen bg-slate-50">
       <section id="about" className="py-10 lg:py-20 bg-white border-b border-slate-200">
           <div className="max-w-7xl mx-auto px-4 sm:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">

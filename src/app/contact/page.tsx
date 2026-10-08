@@ -5,7 +5,7 @@ import { ArrowRight, FileDown, Award, CheckCircle2, ShieldCheck, Flame, Truck, P
 
 export default function ContactPage() {
   return (
-    <main className="min-h-screen pt-20 bg-slate-50">
+    <main className="min-h-screen bg-slate-50">
       <section id="contact" className="py-10 lg:py-20 bg-slate-900 text-white relative">
           <div className="max-w-7xl mx-auto px-4 sm:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">

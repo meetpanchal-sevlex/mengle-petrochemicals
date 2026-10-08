@@ -61,7 +61,7 @@ export default async function PriceListPage() {
   
 
   return (
-    <main className="min-h-screen pt-20 bg-slate-50">
+    <main className="min-h-screen bg-slate-50">
       {/* Hero Section */}
       <section className="bg-[#0B1120] text-white pt-16 pb-24 border-b border-slate-800 relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581094288338-2314dddb7ece?auto=format&fit=crop&q=80')] opacity-5 mix-blend-overlay"></div>

@@ -89,7 +89,7 @@ export function TradingViewCharts() {
 
   return (
     <>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+      <div className="grid grid-cols-1 gap-6 mb-8">
         <div className="h-48 bg-[#0F172A] rounded-2xl border border-slate-800 overflow-hidden shadow-lg p-4">
           <div ref={chart1Ref} className="tradingview-widget-container h-full w-full" />
         </div>
