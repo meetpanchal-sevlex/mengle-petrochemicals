@@ -36,6 +36,7 @@ export default function PriceListPage() {
     script.async = true;
     script.onload = () => {
       if (typeof window !== 'undefined' && (window as any).TradingView) {
+        // WTI Crude Oil
         new (window as any).TradingView.widget({
           "autosize": true,
           "symbol": "TVC:USOIL",
@@ -50,14 +51,31 @@ export default function PriceListPage() {
           "hide_top_toolbar": false,
           "hide_legend": false,
           "save_image": false,
-          "container_id": "tradingview_widget"
+          "container_id": "tradingview_wti"
+        });
+
+        // Brent Crude Oil
+        new (window as any).TradingView.widget({
+          "autosize": true,
+          "symbol": "TVC:UKOIL",
+          "interval": "D",
+          "timezone": "Asia/Kolkata",
+          "theme": "light",
+          "style": "1",
+          "locale": "en",
+          "enable_publishing": false,
+          "backgroundColor": "rgba(255, 255, 255, 1)",
+          "gridColor": "rgba(240, 243, 250, 0)",
+          "hide_top_toolbar": false,
+          "hide_legend": false,
+          "save_image": false,
+          "container_id": "tradingview_brent"
         });
       }
     };
     document.head.appendChild(script);
 
     return () => {
-      // Cleanup script on unmount
       if (document.head.contains(script)) {
         document.head.removeChild(script);
       }
@@ -90,12 +108,17 @@ export default function PriceListPage() {
             </div>
             <div>
               <h2 className="text-2xl font-bold text-slate-900">Live Crude Oil Markets</h2>
-              <p className="text-xs text-slate-500">WTI Crude Oil (USD/BBL) - Real-time Data</p>
+              <p className="text-xs text-slate-500">WTI & Brent Crude (USD/BBL) - Real-time Data</p>
             </div>
           </div>
           
-          <div className="w-full h-[500px] bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm p-2">
-            <div id="tradingview_widget" className="w-full h-full"></div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="w-full h-[450px] bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm p-2">
+              <div id="tradingview_wti" className="w-full h-full"></div>
+            </div>
+            <div className="w-full h-[450px] bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm p-2">
+              <div id="tradingview_brent" className="w-full h-full"></div>
+            </div>
           </div>
         </section>
 
