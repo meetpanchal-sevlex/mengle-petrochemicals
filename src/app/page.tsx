@@ -152,22 +152,9 @@ export default function HomePage() {
                     <ArrowRight className="w-4 h-4" />
                   </button>
 
-                  <a
-                    href="/brochure.pdf"
-                    download="M_Engle_Petrochemicals_Brochure.pdf"
-                    className="bg-slate-800 hover:bg-slate-700 text-white font-semibold px-6 py-3.5 rounded-xl text-sm flex items-center gap-2 border border-slate-700 transition-colors"
-                  >
-                    <FileDown className="w-4 h-4 text-amber-400" />
-                    <span>Download Brochure PDF</span>
-                  </a>
+                  
 
-                  <a
-                    href={`tel:${COMPANY_INFO.phoneRaw}`}
-                    className="inline-flex items-center gap-2 text-sm text-slate-300 hover:text-white font-medium px-2 py-3.5"
-                  >
-                    <Phone className="w-4 h-4 text-amber-400" />
-                    <span>{COMPANY_INFO.phone}</span>
-                  </a>
+                  
                 </div>
               </motion.div>
 
