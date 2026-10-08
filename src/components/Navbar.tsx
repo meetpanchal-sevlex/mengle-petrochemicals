@@ -98,7 +98,7 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
         <div className="hidden lg:flex items-center gap-7 text-[13px] font-semibold text-slate-600"
           style={{ fontFamily: 'var(--font-plus-jakarta)' }}>
           <Link href="/" className="hover:text-slate-900 transition-colors">Home</Link>
-          <a href="#about" className="hover:text-slate-900 transition-colors">About</a>
+          <a href="/about" className="hover:text-slate-900 transition-colors">About</a>
 
           {/* Products Dropdown */}
           <div
@@ -152,9 +152,9 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
             </AnimatePresence>
           </div>
 
-          <a href="#credentials" className="hover:text-slate-900 transition-colors">Compliance</a>
+          <a href="/compliance" className="hover:text-slate-900 transition-colors">Compliance</a>
           
-          <a href="#contact" className="hover:text-slate-900 transition-colors">Contact</a>
+          <a href="/contact" className="hover:text-slate-900 transition-colors">Contact</a>
         </div>
 
         {/* CTA Buttons */}
@@ -189,7 +189,7 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
             style={{ fontFamily: 'var(--font-plus-jakarta)' }}
           >
             <div className="px-5 py-6 space-y-4">
-              {['/', '#about', '#credentials', '#contact'].map((href, i) => {
+              {['/', '/about', '/compliance', '/contact'].map((href, i) => {
                 const labels = ['Home', 'About Us', 'Compliance & Licenses', 'Contact'];
                 return (
                   <Link
