@@ -75,7 +75,7 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
 
         {/* Brand */}
         <Link href="/" className="flex items-center group shrink-0">
-            <img src="/images/logo.png" alt="M Engle Logo" className="w-36 md:w-44 h-auto object-contain group-hover:opacity-90 transition-opacity duration-200" />
+            <img src="/images/logo.png" alt="M Engle Logo" className="h-10 md:h-12 w-auto object-contain group-hover:opacity-90 transition-opacity duration-200 mix-blend-multiply" />
           </Link>
 
         {/* Desktop Links */}
