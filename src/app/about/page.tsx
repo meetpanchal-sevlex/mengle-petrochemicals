@@ -12,7 +12,7 @@ export default function AboutPage() {
   return (
     <main className="min-h-screen bg-slate-50 overflow-hidden pt-12">
       {/* 1. HERO SECTION (Dark Premium) */}
-      <section className="relative bg-[#0B1120] text-white pt-24 pb-32 border-b border-slate-800">
+      <section className="relative bg-[#0B1120] text-white pt-16 pb-24 sm:pt-24 sm:pb-32 border-b border-slate-800">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-20"></div>
         <div className="absolute top-0 left-0 right-0 h-96 bg-gradient-to-b from-amber-500/10 to-transparent blur-3xl opacity-50 pointer-events-none"></div>
         
@@ -30,7 +30,7 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-            className="text-4xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight mb-6"
+            className="text-4xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight mb-4 sm:mb-6 leading-[1.1]"
             style={{ fontFamily: 'var(--font-sora)' }}
           >
             Powering Industry With <br className="hidden md:block"/>
@@ -43,7 +43,7 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-            className="text-lg sm:text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed font-medium"
+            className="text-base sm:text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed font-medium"
           >
             We distribute premium petroleum products and industrial chemicals to businesses across India. Partner with us for dependable supply chains, lab-tested specifications, and rigorous regulatory compliance.
           </motion.p>
@@ -51,16 +51,16 @@ export default function AboutPage() {
       </section>
 
       {/* 2. VISION & MISSION BENTO GRID */}
-      <section className="relative z-20 -mt-16 max-w-7xl mx-auto px-4 sm:px-8 pb-20">
+      <section className="relative z-20 -mt-12 sm:-mt-16 max-w-7xl mx-auto px-4 sm:px-8 pb-12 sm:pb-20">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="bg-white rounded-3xl p-8 sm:p-10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-200/80 group hover:border-amber-300 transition-all duration-300 flex flex-col"
+            className="bg-white rounded-3xl p-6 sm:p-10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-200/80 group hover:border-amber-300 transition-all duration-300 flex flex-col"
           >
-            <div className="w-12 h-12 rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shrink-0">
-              <Target className="w-6 h-6" />
+            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shrink-0">
+              <Target className="w-5 h-5 sm:w-6 sm:h-6" />
             </div>
             <h2 className="text-2xl font-extrabold text-slate-900 mb-4" style={{ fontFamily: 'var(--font-sora)' }}>Our Mission</h2>
             <p className="text-slate-600 leading-relaxed text-[15px] sm:text-base">
@@ -72,10 +72,10 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="bg-slate-900 rounded-3xl p-8 sm:p-10 shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-slate-800 group hover:border-amber-500/50 transition-all duration-300 text-white flex flex-col"
+            className="bg-slate-900 rounded-3xl p-6 sm:p-10 shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-slate-800 group hover:border-amber-500/50 transition-all duration-300 text-white flex flex-col"
           >
-            <div className="w-12 h-12 rounded-2xl bg-slate-800 text-amber-400 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shrink-0">
-              <Lightbulb className="w-6 h-6" />
+            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-slate-800 text-amber-400 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shrink-0">
+              <Lightbulb className="w-5 h-5 sm:w-6 sm:h-6" />
             </div>
             <h2 className="text-2xl font-extrabold mb-4" style={{ fontFamily: 'var(--font-sora)' }}>Our Vision</h2>
             <p className="text-slate-400 leading-relaxed text-[15px] sm:text-base">
@@ -86,9 +86,9 @@ export default function AboutPage() {
       </section>
 
       {/* 3. CORE STRENGTHS GRID */}
-      <section className="py-20 bg-white border-t border-slate-200">
+      <section className="py-12 sm:py-20 bg-white border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16">
+          <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-16">
             <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-4" style={{ fontFamily: 'var(--font-sora)' }}>
               Operational Strengths
             </h2>
@@ -103,7 +103,7 @@ export default function AboutPage() {
               return (
                 <div 
                   key={i} 
-                  className="bg-slate-50 rounded-3xl p-8 border border-slate-200/80 hover:bg-white hover:shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-300 group"
+                  className="bg-slate-50 rounded-3xl p-5 sm:p-8 border border-slate-200/80 hover:bg-white hover:shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-300 group"
                 >
                   <div className="w-12 h-12 rounded-xl bg-white border border-slate-200 text-slate-700 flex items-center justify-center mb-6 group-hover:text-amber-600 group-hover:border-amber-200 transition-colors">
                     <Icon className="w-5 h-5" />
@@ -118,7 +118,7 @@ export default function AboutPage() {
       </section>
       
       {/* 4. CTA */}
-      <section className="py-20 bg-slate-900 relative overflow-hidden">
+      <section className="py-16 sm:py-20 bg-slate-900 relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581094288338-2314dddb7ece?auto=format&fit=crop&q=80')] opacity-5 mix-blend-overlay object-cover"></div>
         <div className="max-w-4xl mx-auto px-4 sm:px-8 relative z-10 text-center">
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-6" style={{ fontFamily: 'var(--font-sora)' }}>
@@ -128,10 +128,10 @@ export default function AboutPage() {
             Partner with M. Engle Petrochemicals today for lab-certified products, transparent pricing, and pan-India delivery.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href="/contact" className="w-full sm:w-auto px-8 py-4 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold rounded-xl transition-all shadow-[0_0_20px_rgba(245,158,11,0.3)]">
+            <Link href="/contact" className="w-full sm:w-auto px-5 py-3.5 sm:px-8 sm:py-4 bg-amber-500 text-sm sm:text-base hover:bg-amber-400 text-slate-950 font-bold rounded-xl transition-all shadow-[0_0_20px_rgba(245,158,11,0.3)]">
               Request a Quote
             </Link>
-            <Link href="/price-list" className="w-full sm:w-auto px-8 py-4 bg-slate-800 hover:bg-slate-700 text-white font-bold rounded-xl transition-all border border-slate-700">
+            <Link href="/price-list" className="w-full sm:w-auto px-5 py-3.5 sm:px-8 sm:py-4 bg-slate-800 text-sm sm:text-base hover:bg-slate-700 text-white font-bold rounded-xl transition-all border border-slate-700">
               View Price List
             </Link>
           </div>
