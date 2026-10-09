@@ -103,7 +103,7 @@ export default async function PriceListPage() {
           
           {/* Black Oils Table */}
           <div className="bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden">
-            <div className="bg-slate-900 px-6 py-4 flex items-center justify-between">
+            <div className="bg-slate-900 px-4 py-3 sm:px-6 sm:py-4 flex items-center justify-between">
               <h2 className="text-lg font-bold text-white flex items-center gap-2">
                 <div className="w-3 h-3 rounded-full bg-amber-500"></div>
                 Black Oils (Furnace / LDO)
@@ -112,11 +112,11 @@ export default async function PriceListPage() {
             <div className="overflow-x-auto">
               <table className="w-full text-left border-collapse">
                 <thead>
-                  <tr className="bg-slate-50 border-b border-slate-200 text-xs uppercase tracking-wider text-slate-500 font-bold">
-                    <th className="py-4 px-6">Product Grade</th>
-                    <th className="py-4 px-6 text-right">Basic Price</th>
-                    <th className="py-4 px-6 text-right">GST</th>
-                    <th className="py-4 px-6 text-right">Total Estimated</th>
+                  <tr className="bg-slate-50 border-b border-slate-200 text-[10px] sm:text-xs uppercase tracking-normal sm:tracking-wider text-slate-500 font-bold">
+                    <th className="py-2.5 px-3 sm:py-4 sm:px-6">Product Grade</th>
+                    <th className="py-2.5 px-3 sm:py-4 sm:px-6 text-right">Basic Price</th>
+                    <th className="py-2.5 px-3 sm:py-4 sm:px-6 text-right">GST</th>
+                    <th className="py-2.5 px-3 sm:py-4 sm:px-6 text-right">Total Estimated</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-100">
@@ -128,10 +128,10 @@ export default async function PriceListPage() {
                       const total = item.basic + gstAmount;
                       return (
                         <tr key={idx} className="hover:bg-slate-50 transition-colors group">
-                          <td className="py-4 px-6 font-bold text-slate-900">{item.name}</td>
-                          <td className="py-4 px-6 text-right font-mono text-sm"><span className="font-bold">{item.basic.toFixed(2)}</span><span className="text-[10px] text-slate-400 ml-1">/{item.unit}</span></td>
-                          <td className="py-4 px-6 text-right text-slate-500 text-sm">{item.gstRate}%</td>
-                          <td className="py-4 px-6 text-right font-mono text-sm text-amber-700 font-bold">{total.toFixed(2)}</td>
+                          <td className="py-2.5 px-3 sm:py-4 sm:px-6 font-bold text-slate-900 text-[13px] sm:text-base leading-tight">{item.name}</td>
+                          <td className="py-2.5 px-3 sm:py-4 sm:px-6 text-right font-mono text-[12px] sm:text-sm"><span className="font-bold">{item.basic.toFixed(2)}</span><span className="text-[10px] text-slate-400 ml-1">/{item.unit}</span></td>
+                          <td className="py-2.5 px-3 sm:py-4 sm:px-6 text-right text-slate-500 text-[12px] sm:text-sm">{item.gstRate}%</td>
+                          <td className="py-2.5 px-3 sm:py-4 sm:px-6 text-right font-mono text-[12px] sm:text-sm text-amber-700 font-bold">{total.toFixed(2)}</td>
                         </tr>
                       );
                     })
@@ -143,7 +143,7 @@ export default async function PriceListPage() {
 
           {/* White Oils Table */}
           <div className="bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden">
-            <div className="bg-slate-900 px-6 py-4 flex items-center justify-between">
+            <div className="bg-slate-900 px-4 py-3 sm:px-6 sm:py-4 flex items-center justify-between">
               <h2 className="text-lg font-bold text-white flex items-center gap-2">
                 <div className="w-3 h-3 rounded-full bg-sky-400"></div>
                 White Oils & Solvents (MTO / C9)
@@ -152,11 +152,11 @@ export default async function PriceListPage() {
             <div className="overflow-x-auto">
               <table className="w-full text-left border-collapse">
                 <thead>
-                  <tr className="bg-slate-50 border-b border-slate-200 text-xs uppercase tracking-wider text-slate-500 font-bold">
-                    <th className="py-4 px-6">Product Grade</th>
-                    <th className="py-4 px-6 text-right">Basic Price</th>
-                    <th className="py-4 px-6 text-right">GST</th>
-                    <th className="py-4 px-6 text-right">Total Estimated</th>
+                  <tr className="bg-slate-50 border-b border-slate-200 text-[10px] sm:text-xs uppercase tracking-normal sm:tracking-wider text-slate-500 font-bold">
+                    <th className="py-2.5 px-3 sm:py-4 sm:px-6">Product Grade</th>
+                    <th className="py-2.5 px-3 sm:py-4 sm:px-6 text-right">Basic Price</th>
+                    <th className="py-2.5 px-3 sm:py-4 sm:px-6 text-right">GST</th>
+                    <th className="py-2.5 px-3 sm:py-4 sm:px-6 text-right">Total Estimated</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-100">
@@ -168,10 +168,10 @@ export default async function PriceListPage() {
                       const total = item.basic + gstAmount;
                       return (
                         <tr key={idx} className="hover:bg-slate-50 transition-colors group">
-                          <td className="py-4 px-6 font-bold text-slate-900">{item.name}</td>
-                          <td className="py-4 px-6 text-right font-mono text-sm"><span className="font-bold">{item.basic.toFixed(2)}</span><span className="text-[10px] text-slate-400 ml-1">/{item.unit}</span></td>
-                          <td className="py-4 px-6 text-right text-slate-500 text-sm">{item.gstRate}%</td>
-                          <td className="py-4 px-6 text-right font-mono text-sm text-amber-700 font-bold">{total.toFixed(2)}</td>
+                          <td className="py-2.5 px-3 sm:py-4 sm:px-6 font-bold text-slate-900 text-[13px] sm:text-base leading-tight">{item.name}</td>
+                          <td className="py-2.5 px-3 sm:py-4 sm:px-6 text-right font-mono text-[12px] sm:text-sm"><span className="font-bold">{item.basic.toFixed(2)}</span><span className="text-[10px] text-slate-400 ml-1">/{item.unit}</span></td>
+                          <td className="py-2.5 px-3 sm:py-4 sm:px-6 text-right text-slate-500 text-[12px] sm:text-sm">{item.gstRate}%</td>
+                          <td className="py-2.5 px-3 sm:py-4 sm:px-6 text-right font-mono text-[12px] sm:text-sm text-amber-700 font-bold">{total.toFixed(2)}</td>
                         </tr>
                       );
                     })
