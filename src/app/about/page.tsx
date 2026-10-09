@@ -43,9 +43,9 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-            className="text-base sm:text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed font-medium"
+            className="text-[15px] sm:text-lg text-slate-400 max-w-3xl mx-auto leading-relaxed font-medium"
           >
-            We distribute premium petroleum products and industrial chemicals to businesses across India. Partner with us for dependable supply chains, lab-tested specifications, and rigorous regulatory compliance.
+            Distributing premium petroleum and industrial chemicals across India with lab-tested specifications and uncompromising compliance.
           </motion.p>
         </div>
       </section>
@@ -57,14 +57,14 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="bg-white rounded-3xl p-6 sm:p-10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-200/80 group hover:border-amber-300 transition-all duration-300 flex flex-col"
+            className="bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-200/80 group hover:border-amber-300 transition-all duration-300 flex flex-col"
           >
             <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shrink-0">
               <Target className="w-5 h-5 sm:w-6 sm:h-6" />
             </div>
             <h2 className="text-2xl font-extrabold text-slate-900 mb-4" style={{ fontFamily: 'var(--font-sora)' }}>Our Mission</h2>
-            <p className="text-slate-600 leading-relaxed text-[15px] sm:text-base">
-              To simplify petroleum procurement for businesses by providing dependable products, reliable supply, and professional service—every single time. We bridge the gap between complex refinery outputs and precise industrial requirements.
+            <p className="text-slate-600 leading-relaxed text-sm sm:text-base">
+              Simplifying petroleum procurement with dependable supply, professional service, and certified quality.
             </p>
           </motion.div>
 
@@ -72,14 +72,14 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="bg-slate-900 rounded-3xl p-6 sm:p-10 shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-slate-800 group hover:border-amber-500/50 transition-all duration-300 text-white flex flex-col"
+            className="bg-slate-900 rounded-2xl sm:rounded-3xl p-6 sm:p-10 shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-slate-800 group hover:border-amber-500/50 transition-all duration-300 text-white flex flex-col"
           >
             <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-slate-800 text-amber-400 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shrink-0">
               <Lightbulb className="w-5 h-5 sm:w-6 sm:h-6" />
             </div>
             <h2 className="text-2xl font-extrabold mb-4" style={{ fontFamily: 'var(--font-sora)' }}>Our Vision</h2>
-            <p className="text-slate-400 leading-relaxed text-[15px] sm:text-base">
-              To develop M Engle Petroleum into a universally trusted and recognized petroleum distribution company, known industry-wide for reliable products, professional service, regulatory responsibility, and long-term customer relationships.
+            <p className="text-slate-400 leading-relaxed text-sm sm:text-base">
+              To be India's most trusted petroleum distributor, recognized for regulatory responsibility and long-term partnerships.
             </p>
           </motion.div>
         </div>
@@ -103,7 +103,7 @@ export default function AboutPage() {
               return (
                 <div 
                   key={i} 
-                  className="bg-slate-50 rounded-3xl p-5 sm:p-8 border border-slate-200/80 hover:bg-white hover:shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-300 group"
+                  className="bg-slate-50 rounded-2xl sm:rounded-3xl p-5 sm:p-8 border border-slate-200/80 hover:bg-white hover:shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-300 group"
                 >
                   <div className="w-12 h-12 rounded-xl bg-white border border-slate-200 text-slate-700 flex items-center justify-center mb-6 group-hover:text-amber-600 group-hover:border-amber-200 transition-colors">
                     <Icon className="w-5 h-5" />
