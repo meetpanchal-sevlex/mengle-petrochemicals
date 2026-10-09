@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Phone, Mail, FileDown, ShieldCheck, Menu, X, ChevronDown, MapPin } from 'lucide-react';
 import { COMPANY_INFO } from '@/data/companyData';
@@ -23,6 +24,15 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+
+  // Force scroll to top on route change (fixes mobile drawer scroll retention bug)
+  useEffect(() => {
+    if (!window.location.hash) {
+      setTimeout(() => window.scrollTo(0, 0), 50);
+      setTimeout(() => window.scrollTo(0, 0), 150);
+    }
+  }, [pathname]);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 12);
