@@ -9,7 +9,7 @@ export default function Footer() {
       {/* Main Footer Links & Depots */}
       <div className="max-w-7xl mx-auto px-4 sm:px-8 py-16 grid grid-cols-1 lg:grid-cols-12 gap-12">
         {/* Brand Column */}
-        <div className="lg:col-span-4 space-y-4">
+        <div className="lg:col-span-7 space-y-4">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-amber-500 to-amber-700 flex items-center justify-center text-slate-950 font-black text-xl shadow-md">
               M
@@ -50,45 +50,6 @@ export default function Footer() {
               <span>Download Official Product PDF Brochure</span>
             </a>
           </div>
-        </div>
-
-        {/* Product Categories */}
-        <div className="lg:col-span-3 space-y-3">
-          <div className="text-xs font-bold text-white uppercase tracking-wider">
-            Product Portfolio
-          </div>
-          <ul className="space-y-2 text-sm">
-            <li>
-              <a href="/#products-black-oils" className="hover:text-amber-400 transition-colors flex items-center justify-between group">
-                <span>Black Oils (LDO, FO, LSHS)</span>
-                <span className="opacity-0 group-hover:opacity-100 transition-opacity">→</span>
-              </a>
-            </li>
-            <li>
-              <a href="/#products-white-oils" className="hover:text-amber-400 transition-colors flex items-center justify-between group">
-                <span>White Oils (LLP, Quenching)</span>
-                <span className="opacity-0 group-hover:opacity-100 transition-opacity">→</span>
-              </a>
-            </li>
-            <li>
-              <a href="/#products-base-oils" className="hover:text-amber-400 transition-colors flex items-center justify-between group">
-                <span>Virgin & Recycled Base Oils</span>
-                <span className="opacity-0 group-hover:opacity-100 transition-opacity">→</span>
-              </a>
-            </li>
-            <li>
-              <a href="/#products-solvents" className="hover:text-amber-400 transition-colors flex items-center justify-between group">
-                <span>Hydrocarbon Solvents (MTO, C9, C10)</span>
-                <span className="opacity-0 group-hover:opacity-100 transition-opacity">→</span>
-              </a>
-            </li>
-            <li>
-              <a href="/#products-aromatics" className="hover:text-amber-400 transition-colors flex items-center justify-between group">
-                <span>Aromatics (Benzene, Toluene)</span>
-                <span className="opacity-0 group-hover:opacity-100 transition-opacity">→</span>
-              </a>
-            </li>
-          </ul>
         </div>
 
         {/* Depots & Offices */}
