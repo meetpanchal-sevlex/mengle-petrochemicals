@@ -6,9 +6,9 @@ import { COMPANY_INFO } from '@/data/companyData';
 export default function Footer() {
   return (
     <footer className="bg-slate-950 text-slate-400 border-t border-slate-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 py-8 sm:py-12 grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 py-6 sm:py-8 grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
         {/* Brand Column */}
-        <div className="space-y-3.5">
+        <div className="space-y-2.5">
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-amber-500 to-amber-700 flex items-center justify-center text-slate-950 font-black text-base shadow-md shrink-0">
               M
@@ -23,16 +23,16 @@ export default function Footer() {
             </div>
           </div>
           
-          <div className="flex flex-col gap-2">
-            <a href={`tel:${COMPANY_INFO.phoneRaw}`} className="flex items-center gap-3 text-[13px] text-slate-300 hover:text-white transition-colors">
+          <div className="flex flex-col gap-1.5">
+            <a href={`tel:${COMPANY_INFO.phoneRaw}`} className="flex items-center gap-2 text-[12px] text-slate-300 hover:text-white transition-colors">
               <Phone className="w-4 h-4 text-amber-500 shrink-0" />
               <span>{COMPANY_INFO.phone}</span>
             </a>
-            <a href={`mailto:${COMPANY_INFO.email}`} className="flex items-center gap-3 text-[13px] text-slate-300 hover:text-white transition-colors">
+            <a href={`mailto:${COMPANY_INFO.email}`} className="flex items-center gap-2 text-[12px] text-slate-300 hover:text-white transition-colors">
               <Mail className="w-4 h-4 text-amber-500 shrink-0" />
               <span>{COMPANY_INFO.email}</span>
             </a>
-            <a href="/brochure.pdf" download="M_Engle_Petrochemicals_Brochure.pdf" className="inline-flex items-center gap-2 text-[13px] text-amber-400 hover:text-amber-300 font-medium mt-1">
+            <a href="/brochure.pdf" download="M_Engle_Petrochemicals_Brochure.pdf" className="inline-flex items-center gap-2 text-[12px] text-amber-400 hover:text-amber-300 font-medium mt-0">
               <FileDown className="w-4 h-4 shrink-0" />
               <span>Download Official Product PDF Brochure</span>
             </a>
@@ -40,12 +40,12 @@ export default function Footer() {
         </div>
 
         {/* Depots & Offices */}
-        <div className="space-y-4">
-          <div className="text-[11px] font-bold text-slate-500 uppercase tracking-widest">
+        <div className="space-y-2.5">
+          <div className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">
             Office Locations
           </div>
 
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-2">
             <div>
               <div className="text-xs font-bold text-slate-200">Ahmedabad (Branch)</div>
               <div className="text-[11px] text-slate-400 leading-snug max-w-sm">
@@ -64,7 +64,7 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-slate-900 py-4 px-4 sm:px-8 text-[11px] text-slate-500">
+      <div className="border-t border-slate-900 py-3 px-4 sm:px-8 text-[10px] text-slate-500">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
           <div>
             &copy; 2026 {COMPANY_INFO.name}. All rights reserved.
