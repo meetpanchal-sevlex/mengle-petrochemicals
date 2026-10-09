@@ -1,4 +1,73 @@
-'use client';
+const fs = require('fs');
+
+const pageContent = fs.readFileSync('src/app/page.tsx', 'utf8');
+
+const heroStart = pageContent.indexOf('<section className="relative bg-gradient');
+const heroEnd = pageContent.indexOf('</section>', heroStart) + 10;
+
+const prodStart = pageContent.indexOf('<section id="products"');
+const prodEnd = pageContent.indexOf('</section>', prodStart) + 10;
+
+const heroSectionCode = pageContent.substring(heroStart, heroEnd);
+const productsSectionCode = pageContent.substring(prodStart, prodEnd);
+
+// Write HeroSection.tsx
+const heroSectionComponent = `'use client';
+
+import React from 'react';
+import { motion } from 'framer-motion';
+import { ArrowRight, ShieldCheck, Truck, Flame, Clock } from 'lucide-react';
+import { COMPANY_INFO } from '@/data/companyData';
+
+interface HeroSectionProps {
+  onOpenQuote: () => void;
+  fadeUp: any;
+}
+
+export default function HeroSection({ onOpenQuote, fadeUp }: HeroSectionProps) {
+  return (
+    ${heroSectionCode.replace(/onClick=\{\(\) => handleOpenQuote\(\)\}/g, 'onClick={onOpenQuote}')}
+  );
+}
+`;
+fs.writeFileSync('src/components/home/HeroSection.tsx', heroSectionComponent);
+
+// Write ProductPortfolio.tsx
+const productPortfolioComponent = `'use client';
+
+import React from 'react';
+import { Search } from 'lucide-react';
+import ProductCard from '@/components/ProductCard';
+import { PRODUCTS, Product } from '@/data/companyData';
+
+interface ProductPortfolioProps {
+  categories: string[];
+  selectedCategory: string;
+  setSelectedCategory: (cat: string) => void;
+  searchQuery: string;
+  setSearchQuery: (q: string) => void;
+  filteredProducts: Product[];
+  onOpenProduct: (p: Product) => void;
+}
+
+export default function ProductPortfolio({
+  categories,
+  selectedCategory,
+  setSelectedCategory,
+  searchQuery,
+  setSearchQuery,
+  filteredProducts,
+  onOpenProduct
+}: ProductPortfolioProps) {
+  return (
+    ${productsSectionCode.replace(/handleOpenProduct/g, 'onOpenProduct')}
+  );
+}
+`;
+fs.writeFileSync('src/components/home/ProductPortfolio.tsx', productPortfolioComponent);
+
+// Rewrite page.tsx
+const newPageCode = `'use client';
 
 import React, { useState, useMemo, useEffect } from 'react';
 import { PRODUCTS, Product } from '@/data/companyData';
@@ -120,3 +189,8 @@ export default function HomePage() {
     </div>
   );
 }
+`;
+
+fs.writeFileSync('src/app/page.tsx', newPageCode);
+
+console.log("Refactoring complete.");
