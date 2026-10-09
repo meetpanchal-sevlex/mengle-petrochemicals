@@ -6,24 +6,24 @@ import { COMPANY_INFO } from '@/data/companyData';
 export default function Footer() {
   return (
     <footer className="bg-slate-950 text-slate-400 border-t border-slate-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 py-10 sm:py-16 grid grid-cols-1 md:grid-cols-2 gap-10 sm:gap-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 py-8 sm:py-12 grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12">
         {/* Brand Column */}
-        <div className="space-y-5">
+        <div className="space-y-3.5">
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-amber-500 to-amber-700 flex items-center justify-center text-slate-950 font-black text-lg shadow-md shrink-0">
+            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-amber-500 to-amber-700 flex items-center justify-center text-slate-950 font-black text-base shadow-md shrink-0">
               M
             </div>
             <div>
-              <div className="text-base font-bold text-white tracking-tight">
+              <div className="text-[15px] font-bold text-white tracking-tight">
                 M. ENGLE PETROCHEMICALS
               </div>
-              <div className="text-[11px] text-amber-500 font-medium">
+              <div className="text-[10px] text-amber-500 font-medium">
                 Industrial Oil & Chemical Solutions
               </div>
             </div>
           </div>
           
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-2">
             <a href={`tel:${COMPANY_INFO.phoneRaw}`} className="flex items-center gap-3 text-[13px] text-slate-300 hover:text-white transition-colors">
               <Phone className="w-4 h-4 text-amber-500 shrink-0" />
               <span>{COMPANY_INFO.phone}</span>
@@ -45,17 +45,17 @@ export default function Footer() {
             Office Locations
           </div>
 
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-3">
             <div>
-              <div className="text-[13px] font-bold text-slate-200 mb-0.5">Ahmedabad (Branch)</div>
-              <div className="text-xs text-slate-400 leading-relaxed max-w-sm">
+              <div className="text-xs font-bold text-slate-200">Ahmedabad (Branch)</div>
+              <div className="text-[11px] text-slate-400 leading-snug max-w-sm">
                 A622, Moneyplant Highstreet, Jagatpur Rd, Ahmedabad - 382470
               </div>
             </div>
 
             <div>
-              <div className="text-[13px] font-bold text-slate-200 mb-0.5">Indore (HQ)</div>
-              <div className="text-xs text-slate-400 leading-relaxed max-w-sm">
+              <div className="text-xs font-bold text-slate-200">Indore (HQ)</div>
+              <div className="text-[11px] text-slate-400 leading-snug max-w-sm">
                 B-102 Samarth Park, Behind Dmart Mhow, Indore - 453441
               </div>
             </div>

@@ -70,9 +70,11 @@ export default function RootLayout({
       lang="en"
       className={`${sora.variable} ${plusJakarta.variable} ${jetbrainsMono.variable} scroll-smooth`}
     >
-      <body className="min-h-screen bg-[#FAFAFA] text-[#0B1120] antialiased">
+      <body className="min-h-screen bg-[#FAFAFA] text-[#0B1120] antialiased flex flex-col">
         <Navbar />
-        {children}
+        <div className="flex-1 flex flex-col">
+          {children}
+        </div>
         <Footer />
         <FloatingActions />
       </body>
