@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -45,6 +45,21 @@ export default function HomePage() {
   const [quoteProduct, setQuoteProduct] = useState<string>('');
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [isProductModalOpen, setIsProductModalOpen] = useState(false);
+
+  
+  useEffect(() => {
+    const handleHash = () => {
+      const hash = window.location.hash;
+      if (hash === '#products-black-oils') setSelectedCategory('Black Oils');
+      else if (hash === '#products-white-oils') setSelectedCategory('White Oils');
+      else if (hash === '#products-base-oils') setSelectedCategory('Base Oils');
+      else if (hash === '#products-solvents') setSelectedCategory('Solvents');
+      else if (hash === '#products-aromatics') setSelectedCategory('Aromatic Petrochemicals');
+    };
+    handleHash();
+    window.addEventListener('hashchange', handleHash);
+    return () => window.removeEventListener('hashchange', handleHash);
+  }, []);
 
   const categories = ['All', 'Black Oils', 'White Oils', 'Base Oils', 'Solvents', 'Aromatic Petrochemicals'];
 
@@ -199,7 +214,7 @@ export default function HomePage() {
         </section>
 
         {/* CREDENTIALS & PILLARS STRIP */}
-        <section id="products" className="py-20 bg-slate-100/70 border-b border-slate-200">
+        <section id="products" className="py-20 bg-slate-100/70 border-b border-slate-200 relative">
           <div className="max-w-7xl mx-auto px-4 sm:px-8">
             {/* Header */}
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
@@ -229,7 +244,16 @@ export default function HomePage() {
               </div>
             </div>
 
+            
+            {/* Hidden Anchors for Routing */}
+            <div id="products-black-oils" className="absolute -top-24 pointer-events-none" />
+            <div id="products-white-oils" className="absolute -top-24 pointer-events-none" />
+            <div id="products-base-oils" className="absolute -top-24 pointer-events-none" />
+            <div id="products-solvents" className="absolute -top-24 pointer-events-none" />
+            <div id="products-aromatics" className="absolute -top-24 pointer-events-none" />
+
             {/* Category Filter Tabs */}
+
             <div className="flex flex-wrap items-center gap-2 mb-8 overflow-x-auto pb-2">
               {categories.map((cat) => {
                 const count = cat === 'All' 
