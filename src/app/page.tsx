@@ -93,7 +93,7 @@ export default function HomePage() {
       {/* Main Content */}
       <main className="flex-1">
         {/* HERO SECTION */}
-        <section className="relative bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-white overflow-hidden py-12 lg:py-28 border-b border-slate-800">
+        <section className="relative bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-white overflow-hidden pt-12 pb-10 sm:pt-16 sm:pb-16 lg:pt-24 lg:pb-16 border-b border-slate-800">
           {/* Subtle Background Glows */}
           <div className="absolute top-0 left-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
           <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
@@ -214,10 +214,10 @@ export default function HomePage() {
         </section>
 
         {/* CREDENTIALS & PILLARS STRIP */}
-        <section id="products" className="py-20 bg-slate-100/70 border-b border-slate-200 relative">
+        <section id="products" className="pt-10 pb-12 sm:pt-14 sm:pb-16 bg-slate-100/70 border-b border-slate-200 relative">
           <div className="max-w-7xl mx-auto px-4 sm:px-8">
             {/* Header */}
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-6">
               <div>
                 <div className="text-xs font-bold uppercase tracking-wider text-amber-600 mb-1">
                   Comprehensive Portfolio
