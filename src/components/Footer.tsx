@@ -59,31 +59,31 @@ export default function Footer() {
           </div>
           <ul className="space-y-2 text-sm">
             <li>
-              <a href="#products-black-oils" className="hover:text-amber-400 transition-colors flex items-center justify-between group">
+              <a href="/#products-black-oils" className="hover:text-amber-400 transition-colors flex items-center justify-between group">
                 <span>Black Oils (LDO, FO, LSHS)</span>
                 <span className="opacity-0 group-hover:opacity-100 transition-opacity">→</span>
               </a>
             </li>
             <li>
-              <a href="#products-white-oils" className="hover:text-amber-400 transition-colors flex items-center justify-between group">
+              <a href="/#products-white-oils" className="hover:text-amber-400 transition-colors flex items-center justify-between group">
                 <span>White Oils (LLP, Quenching)</span>
                 <span className="opacity-0 group-hover:opacity-100 transition-opacity">→</span>
               </a>
             </li>
             <li>
-              <a href="#products-base-oils" className="hover:text-amber-400 transition-colors flex items-center justify-between group">
+              <a href="/#products-base-oils" className="hover:text-amber-400 transition-colors flex items-center justify-between group">
                 <span>Virgin & Recycled Base Oils</span>
                 <span className="opacity-0 group-hover:opacity-100 transition-opacity">→</span>
               </a>
             </li>
             <li>
-              <a href="#products-solvents" className="hover:text-amber-400 transition-colors flex items-center justify-between group">
+              <a href="/#products-solvents" className="hover:text-amber-400 transition-colors flex items-center justify-between group">
                 <span>Hydrocarbon Solvents (MTO, C9, C10)</span>
                 <span className="opacity-0 group-hover:opacity-100 transition-opacity">→</span>
               </a>
             </li>
             <li>
-              <a href="#products-aromatics" className="hover:text-amber-400 transition-colors flex items-center justify-between group">
+              <a href="/#products-aromatics" className="hover:text-amber-400 transition-colors flex items-center justify-between group">
                 <span>Aromatics (Benzene, Toluene)</span>
                 <span className="opacity-0 group-hover:opacity-100 transition-opacity">→</span>
               </a>

@@ -12,11 +12,11 @@ interface NavbarProps {
 }
 
 const categories = [
-  { name: "Black Oils", href: "#products-black-oils", desc: "LDO, Furnace Oil, Fuel Oil, LSHS, Pyrolysis" },
-  { name: "White Oils", href: "#products-white-oils", desc: "Light Liquid Paraffin (LLP), Quenching Oil" },
-  { name: "Base Oils", href: "#products-base-oils", desc: "SN-150, SN-500, N-150, LUB-32, LUB-100" },
-  { name: "Petroleum Solvents", href: "#products-solvents", desc: "MTO, Naphtha, C9, C9 Plus, C10" },
-  { name: "Aromatic Petrochemicals", href: "#products-aromatics", desc: "Benzene C6H6, Toluene, Crude Benzol" },
+  { name: "Black Oils", href: "/#products-black-oils", desc: "LDO, Furnace Oil, Fuel Oil, LSHS, Pyrolysis" },
+  { name: "White Oils", href: "/#products-white-oils", desc: "Light Liquid Paraffin (LLP), Quenching Oil" },
+  { name: "Base Oils", href: "/#products-base-oils", desc: "SN-150, SN-500, N-150, LUB-32, LUB-100" },
+  { name: "Petroleum Solvents", href: "/#products-solvents", desc: "MTO, Naphtha, C9, C9 Plus, C10" },
+  { name: "Aromatic Petrochemicals", href: "/#products-aromatics", desc: "Benzene C6H6, Toluene, Crude Benzol" },
 ];
 
 export default function Navbar({ onOpenQuote }: NavbarProps) {
@@ -127,7 +127,7 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
                     </a>
                   ))}
                   <div className="mt-1 pt-2 border-t border-slate-100 px-3">
-                    <a href="#products" className="text-[11px] font-bold text-amber-600 hover:text-amber-700 flex items-center justify-between">
+                    <a href="/#products" className="text-[11px] font-bold text-amber-600 hover:text-amber-700 flex items-center justify-between">
                       View All 17 Products with Lab Specs →
                     </a>
                   </div>
