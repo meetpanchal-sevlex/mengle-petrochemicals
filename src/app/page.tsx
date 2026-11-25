@@ -64,24 +64,38 @@ export default function HomePage() {
   };
 
   useEffect(() => {
+    const scrollToProducts = () => {
+      setTimeout(() => {
+        const productsSection = document.getElementById('products');
+        if (productsSection) {
+          const y = productsSection.getBoundingClientRect().top + window.scrollY - 90;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        }
+      }, 80);
+    };
+
     const handleHashChange = () => {
       const hash = window.location.hash;
+      if (hash === '#products') {
+        setSelectedCategory('All');
+        setSearchQuery('');
+        scrollToProducts();
+        return;
+      }
+
       if (hash && hash.startsWith('#products-')) {
         const categoryMap: Record<string, string> = {
-          '#products-black-oils': 'Black Oils (LDO, FO, LSHS)',
-          '#products-white-oils': 'White Oils & LLP',
+          '#products-black-oils': 'Black Oils',
+          '#products-white-oils': 'White Oils',
           '#products-base-oils': 'Base Oils',
-          '#products-solvents': 'Hydrocarbon Solvents',
-          '#products-aromatics': 'Aromatics',
+          '#products-solvents': 'Solvents',
+          '#products-aromatics': 'Aromatic Petrochemicals',
         };
         const category = categoryMap[hash];
         if (category) {
           setSelectedCategory(category);
-          const productsSection = document.getElementById('products');
-          if (productsSection) {
-            const y = productsSection.getBoundingClientRect().top + window.scrollY - 100;
-            window.scrollTo({ top: y, behavior: 'smooth' });
-          }
+          setSearchQuery('');
+          scrollToProducts();
         }
       }
     };
