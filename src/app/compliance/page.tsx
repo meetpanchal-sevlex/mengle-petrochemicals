@@ -44,22 +44,26 @@ export default function CompliancePage() {
   const credentialStyles = [
     {
       icon: ShieldCheck,
-      badge: 'bg-amber-50 text-amber-600 border-amber-200/80',
+      badge: 'bg-amber-500/15 text-amber-400 border-amber-500/30',
+      topBorder: 'border-t-amber-500',
       tag: 'PESO Licensed',
     },
     {
       icon: Building2,
-      badge: 'bg-sky-50 text-sky-600 border-sky-200/80',
+      badge: 'bg-sky-500/15 text-sky-400 border-sky-500/30',
+      topBorder: 'border-t-sky-500',
       tag: 'MSME Registered',
     },
     {
       icon: FileCheck,
-      badge: 'bg-emerald-50 text-emerald-600 border-emerald-200/80',
+      badge: 'bg-emerald-500/15 text-emerald-400 border-emerald-500/30',
+      topBorder: 'border-t-emerald-500',
       tag: 'GST Verified',
     },
     {
       icon: Award,
-      badge: 'bg-indigo-50 text-indigo-600 border-indigo-200/80',
+      badge: 'bg-indigo-500/15 text-indigo-400 border-indigo-500/30',
+      topBorder: 'border-t-indigo-500',
       tag: 'Pan-India Supply',
     },
   ];
@@ -165,11 +169,19 @@ export default function CompliancePage() {
         </div>
       </div>
 
-      {/* 3. VERIFIED STATUTORY CREDENTIALS GRID (With 1-Tap Copy) */}
-      <section className="py-10 sm:py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-8">
+      {/* 3. VERIFIED STATUTORY CREDENTIALS GRID (High-Contrast Dark Slate Cards) */}
+      <section className="py-10 sm:py-16 bg-slate-200/60 relative border-b border-slate-300/70">
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 opacity-30 pointer-events-none"
+          style={{
+            backgroundImage: 'radial-gradient(#94a3b8 1px, transparent 1px)',
+            backgroundSize: '20px 20px',
+          }}
+        />
+        <div className="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
           <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
-            <div className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-amber-600 mb-1">
+            <div className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-amber-700 mb-1">
               Official Registrations
             </div>
             <h2
@@ -178,12 +190,12 @@ export default function CompliancePage() {
             >
               Verified Vendor Credentials
             </h2>
-            <p className="text-xs sm:text-sm text-slate-500 mt-1.5">
+            <p className="text-xs sm:text-sm text-slate-600 mt-1.5 font-medium">
               Tap any registration code to copy it directly for vendor onboarding or KYC verification.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
             {COMPANY_INFO.credentials.map((cred, idx) => {
               const style = credentialStyles[idx % credentialStyles.length];
               const Icon = style.icon;
@@ -197,7 +209,7 @@ export default function CompliancePage() {
                   viewport={{ once: true, margin: '-40px' }}
                   variants={fadeUp}
                   whileHover={{ y: -4 }}
-                  className="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_30px_rgba(0,0,0,0.07)] hover:border-amber-300/80 transition-all flex flex-col justify-between gap-4"
+                  className={`bg-[#0B1120] text-white rounded-2xl p-5 border border-slate-800 border-t-4 ${style.topBorder} shadow-xl hover:shadow-2xl transition-all flex flex-col justify-between gap-4`}
                 >
                   <div className="flex items-start justify-between gap-3">
                     <div
@@ -205,22 +217,22 @@ export default function CompliancePage() {
                     >
                       <Icon className="w-5 h-5" />
                     </div>
-                    <span className="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200/70">
+                    <span className="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
                       <CheckCircle2 className="w-3 h-3" /> Active
                     </span>
                   </div>
 
                   <div>
-                    <div className="text-xs font-semibold text-slate-500">
+                    <div className="text-xs font-semibold text-slate-400">
                       {cred.title}
                     </div>
                     <div
-                      className="text-sm sm:text-[15px] font-bold text-slate-900 mt-1 break-all"
+                      className="text-sm sm:text-[15px] font-bold text-white mt-1.5 break-all bg-slate-900/90 border border-slate-800 rounded-lg px-2.5 py-2"
                       style={{ fontFamily: 'var(--font-jetbrains-mono)' }}
                     >
                       {cred.value}
                     </div>
-                    <div className="text-[11px] text-slate-400 mt-1 leading-snug">
+                    <div className="text-[11px] text-slate-400 mt-2 leading-snug">
                       {cred.subtitle}
                     </div>
                   </div>
@@ -228,16 +240,16 @@ export default function CompliancePage() {
                   <button
                     type="button"
                     onClick={() => handleCopy(cred.value, idx)}
-                    className="w-full py-2 px-3 rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-200/80 text-xs font-bold text-slate-700 flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
+                    className="w-full py-2.5 px-3 rounded-xl bg-slate-800/90 hover:bg-amber-500 hover:text-slate-950 border border-slate-700/80 hover:border-amber-400 text-xs font-bold text-slate-200 flex items-center justify-center gap-1.5 transition-all cursor-pointer"
                   >
                     {isCopied ? (
                       <>
-                        <Check className="w-3.5 h-3.5 text-emerald-600" />
-                        <span className="text-emerald-700">Copied!</span>
+                        <Check className="w-3.5 h-3.5 text-emerald-400" />
+                        <span className="text-emerald-400">Copied!</span>
                       </>
                     ) : (
                       <>
-                        <Copy className="w-3.5 h-3.5 text-slate-400" />
+                        <Copy className="w-3.5 h-3.5" />
                         <span>Copy ID</span>
                       </>
                     )}
@@ -250,7 +262,7 @@ export default function CompliancePage() {
       </section>
 
       {/* 4. SAFETY, QA & BILLING STANDARDS */}
-      <section className="py-10 sm:py-14 bg-white border-y border-slate-200">
+      <section className="py-10 sm:py-14 bg-slate-100 border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
             {compliancePillars.map((pillar, i) => {
@@ -262,7 +274,7 @@ export default function CompliancePage() {
                   whileInView="visible"
                   viewport={{ once: true }}
                   variants={fadeUp}
-                  className="bg-slate-50/80 rounded-2xl p-5 sm:p-6 border border-slate-200/80 flex flex-col gap-3"
+                  className="bg-white rounded-2xl p-5 sm:p-6 border border-slate-300/80 shadow-md hover:shadow-lg transition-all flex flex-col gap-3"
                 >
                   <div
                     className={`w-10 h-10 rounded-xl flex items-center justify-center ${pillar.accent}`}
