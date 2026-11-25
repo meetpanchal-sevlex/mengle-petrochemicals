@@ -94,7 +94,7 @@ export default function HeroSection({ onOpenQuote }: HeroSectionProps) {
   const slide = HERO_SLIDES[currentSlide];
 
   return (
-    <section className="relative bg-slate-950 text-white overflow-hidden pt-12 pb-12 sm:pt-16 sm:pb-16 lg:pt-24 lg:pb-20 border-b border-slate-800 min-h-[540px] sm:min-h-[600px] lg:min-h-[650px] flex items-center group/hero">
+    <section className="relative bg-slate-950 text-white overflow-hidden pt-10 pb-10 sm:pt-16 sm:pb-16 lg:pt-24 lg:pb-20 border-b border-slate-800 min-h-[470px] sm:min-h-[600px] lg:min-h-[650px] flex items-center group/hero">
       {/* Full-Bleed Animated 4K Refinery Background Carousel (Ken Burns Zoom) */}
       <div className="absolute inset-0 z-0 overflow-hidden bg-slate-950">
         <AnimatePresence mode="sync">

@@ -6,6 +6,7 @@ import { PRODUCTS, Product } from '@/data/companyData';
 import QuoteModal from '@/components/QuoteModal';
 import ProductModal from '@/components/ProductModal';
 import HeroSection from '@/components/home/HeroSection';
+import AboutPreview from '@/components/home/AboutPreview';
 import ProductPortfolio from '@/components/home/ProductPortfolio';
 
 const fadeUp = {
@@ -93,6 +94,8 @@ export default function HomePage() {
     <div className="min-h-screen flex flex-col relative w-full overflow-hidden">
       <main>
         <HeroSection onOpenQuote={handleOpenQuote} fadeUp={fadeUp} />
+        
+        <AboutPreview />
         
         <ProductPortfolio 
           categories={categories}
