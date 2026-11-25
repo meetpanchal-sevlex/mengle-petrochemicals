@@ -61,12 +61,28 @@ export function TradingViewCharts() {
   }, []);
 
   return (
-    <div className="flex flex-col gap-6">
-      <div className="h-[280px] bg-[#0F172A] rounded-2xl border border-slate-800 overflow-hidden shadow-lg p-1">
-        <div ref={chart1Ref} className="tradingview-widget-container h-full w-full" />
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 sm:gap-6">
+      <div className="space-y-2.5">
+        <div className="flex items-center justify-between px-1">
+          <span className="text-xs sm:text-sm font-bold text-slate-200">WTI Crude Oil (USOIL)</span>
+          <span className="text-[10px] font-semibold uppercase tracking-wider text-amber-400 bg-amber-500/10 border border-amber-500/20 px-2 py-0.5 rounded-full">
+            Live CFD
+          </span>
+        </div>
+        <div className="h-[280px] sm:h-[330px] bg-[#0F172A] rounded-2xl border border-slate-800 overflow-hidden shadow-lg p-1">
+          <div ref={chart1Ref} className="tradingview-widget-container h-full w-full" />
+        </div>
       </div>
-      <div className="h-[280px] bg-[#0F172A] rounded-2xl border border-slate-800 overflow-hidden shadow-lg p-1">
-        <div ref={chart2Ref} className="tradingview-widget-container h-full w-full" />
+      <div className="space-y-2.5">
+        <div className="flex items-center justify-between px-1">
+          <span className="text-xs sm:text-sm font-bold text-slate-200">Brent Crude Oil (UKOIL)</span>
+          <span className="text-[10px] font-semibold uppercase tracking-wider text-sky-400 bg-sky-500/10 border border-sky-500/20 px-2 py-0.5 rounded-full">
+            Live CFD
+          </span>
+        </div>
+        <div className="h-[280px] sm:h-[330px] bg-[#0F172A] rounded-2xl border border-slate-800 overflow-hidden shadow-lg p-1">
+          <div ref={chart2Ref} className="tradingview-widget-container h-full w-full" />
+        </div>
       </div>
     </div>
   );
