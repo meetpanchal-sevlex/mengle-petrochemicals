@@ -91,8 +91,8 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
         {/* Desktop Links */}
         <div className="hidden lg:flex items-center gap-7 text-[13px] font-semibold text-slate-600"
           style={{ fontFamily: 'var(--font-plus-jakarta)' }}>
-          <Link href="/" className="hover:text-slate-900 transition-colors">Home</Link>
-          <a href="/about" className="hover:text-slate-900 transition-colors">About</a>
+          <Link href="/" className={cn("transition-colors", pathname === "/" ? "text-amber-600 font-bold" : "hover:text-slate-900")}>Home</Link>
+          <Link href="/about" className={cn("transition-colors", pathname === "/about" ? "text-amber-600 font-bold" : "hover:text-slate-900")}>About</Link>
 
           {/* Products Dropdown */}
           <div
@@ -146,10 +146,10 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
             </AnimatePresence>
           </div>
 
-          <a href="/compliance" className="hover:text-slate-900 transition-colors">Compliance</a>
-          <Link href="/price-list" className="hover:text-slate-900 transition-colors font-semibold text-amber-600">Price List</Link>
+          <Link href="/compliance" className={cn("transition-colors", pathname === "/compliance" ? "text-amber-600 font-bold" : "hover:text-slate-900")}>Compliance</Link>
+          <Link href="/price-list" className={cn("transition-colors", pathname === "/price-list" ? "text-amber-600 font-bold" : "hover:text-slate-900")}>Price List</Link>
           
-          <a href="/contact" className="hover:text-slate-900 transition-colors">Contact</a>
+          <Link href="/contact" className={cn("transition-colors", pathname === "/contact" ? "text-amber-600 font-bold" : "hover:text-slate-900")}>Contact</Link>
         </div>
 
         {/* CTA Buttons */}
@@ -191,7 +191,7 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
                     key={i}
                     href={href}
                     onClick={() => setMobileOpen(false)}
-                    className="block text-[15px] font-semibold text-slate-900 hover:text-amber-600 transition-colors"
+                    className={cn("block text-[15px] font-semibold transition-colors", pathname === href ? "text-amber-600 font-bold" : "text-slate-900 hover:text-amber-600")}
                   >
                     {labels[i]}
                   </Link>
