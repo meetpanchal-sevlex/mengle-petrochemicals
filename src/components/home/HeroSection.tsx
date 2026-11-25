@@ -46,20 +46,20 @@ export default function HeroSection({ onOpenQuote, fadeUp }: HeroSectionProps) {
               opacity: { duration: 1.2, ease: 'easeInOut' },
               scale: { duration: 7, ease: 'linear' },
             }}
-            className="absolute inset-0 w-full h-full object-cover object-center"
+            className="absolute inset-0 w-full h-full object-cover object-center brightness-105 contrast-105"
           />
         </AnimatePresence>
 
-        {/* Directional Dark Petroleum Gradient Overlay (Keeps left copy crisp & right refinery vivid) */}
+        {/* Balanced Directional Gradient Scrim (Leaves 4K Refinery Vivid & Prominent) */}
         <div
           className="absolute inset-0 z-10 pointer-events-none"
           style={{
             background:
-              'linear-gradient(95deg, rgba(2, 6, 23, 0.96) 0%, rgba(2, 6, 23, 0.85) 45%, rgba(2, 6, 23, 0.48) 78%, rgba(2, 6, 23, 0.25) 100%)',
+              'linear-gradient(95deg, rgba(0, 0, 0, 0.58) 0%, rgba(0, 0, 0, 0.35) 45%, rgba(0, 0, 0, 0.08) 78%, rgba(0, 0, 0, 0) 100%)',
           }}
         />
-        {/* Subtle Vertical Vignette for Mobile & Bottom Edge */}
-        <div className="absolute inset-0 z-10 bg-gradient-to-t from-slate-950/90 via-transparent to-slate-950/50 pointer-events-none" />
+        {/* Gentle Bottom Edge Blend */}
+        <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/35 via-transparent to-transparent pointer-events-none" />
       </div>
 
       {/* Subtle Outlined Watermark Typography Behind Copy (Desktop) */}
@@ -98,7 +98,7 @@ export default function HeroSection({ onOpenQuote, fadeUp }: HeroSectionProps) {
           </motion.div>
 
           {/* Main Title & Subtitle */}
-          <motion.div variants={fadeUp} className="space-y-2.5">
+          <motion.div variants={fadeUp} className="space-y-2.5 drop-shadow-[0_2px_14px_rgba(0,0,0,0.85)]">
             <h1
               className="text-[2.15rem] sm:text-5xl lg:text-[3.75rem] font-extrabold leading-[1.08] tracking-[-0.03em] drop-shadow-sm"
               style={{ fontFamily: 'var(--font-sora)' }}
@@ -119,7 +119,7 @@ export default function HeroSection({ onOpenQuote, fadeUp }: HeroSectionProps) {
           {/* Description */}
           <motion.p
             variants={fadeUp}
-            className="text-slate-200 text-sm sm:text-lg lg:text-xl font-medium leading-relaxed max-w-2xl"
+            className="text-slate-100 text-sm sm:text-lg lg:text-xl font-medium leading-relaxed max-w-2xl drop-shadow-[0_2px_10px_rgba(0,0,0,0.85)]"
             style={{ fontFamily: 'var(--font-plus-jakarta)' }}
           >
             Delivering lab-tested industrial fuels, base oils, and specialty solvents with uncompromising consistency and pan-India logistics.
