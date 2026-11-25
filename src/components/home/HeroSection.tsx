@@ -129,12 +129,12 @@ export default function HeroSection({ onOpenQuote }: HeroSectionProps) {
       <motion.div
         aria-hidden="true"
         initial={{ opacity: 0, x: -24 }}
-        animate={{ opacity: 0.6, x: 0 }}
+        animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
         className="hidden lg:block absolute left-6 top-1/2 -translate-y-1/2 z-10 select-none pointer-events-none font-extrabold tracking-tighter leading-none text-[160px] xl:text-[210px] text-transparent"
         style={{
           fontFamily: 'var(--font-sora)',
-          WebkitTextStroke: '1px rgba(255, 255, 255, 0.08)',
+          WebkitTextStroke: '1.5px rgba(255, 255, 255, 0.22)',
         }}
       >
         M. ENGLE
